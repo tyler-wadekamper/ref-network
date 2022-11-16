@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: MyString
+  down: MyString
+  distance: MyString
+  yardline_team: MyString
+  yardline_num: MyString
+  clock_status: MyString
+
+two:
+  team: MyString
+  down: MyString
+  distance: MyString
+  yardline_team: MyString
+  yardline_num: MyString
+  clock_status: MyString
