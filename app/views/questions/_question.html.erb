@@ -1,4 +1,7 @@
 <p>
   <strong>Body:</strong>
+  <% if question.author == current_user %>
+    <%= link_to 'Edit', edit_question_path(question.id) %>
+  <% end %>
   <%= question.body %>
 </p>
