@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body,
-                                     answer_attributes: %i[team down distance yardline_num yardline_team clock_status explanation])
+    params.require(:question).permit(:body, :id, :commit,
+                                     answer_attributes: %i[team down distance yardline_num yardline_team clock_status explanation id])
   end
 end
