@@ -17,7 +17,7 @@
     <div>RefNetwork</div>
     <% if user_signed_in? %>
       <div>
-        <%= current_user.name %>
+        <%= current_user.first_name %> <%= current_user.last_name %>
       </div>
     <% else %>
       <%= link_to 'Log in', new_user_session_path %>
