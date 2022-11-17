@@ -7,6 +7,7 @@ class CreateAnswers < ActiveRecord::Migration[7.0]
       t.string :yardline_team
       t.string :yardline_num
       t.string :clock_status
+      t.references :question
 
       t.timestamps
     end

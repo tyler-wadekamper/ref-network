@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :questions, only: [:edit, :new, :create, :index, :update]
+  resources :answers, only: [:edit, :new, :create, :update]
 
   # Defines the root path route ("/")
   root "questions#index"

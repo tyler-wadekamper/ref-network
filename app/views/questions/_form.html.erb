@@ -5,7 +5,7 @@
 
       <ul>
         <% question.errors.each do |error| %>
-          <li><%= question.full_message %></li>
+          <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
@@ -14,6 +14,22 @@
   <div>
     <%= form.label :body, style: "display: block" %>
     <%= form.text_area :body, size: "70x5" %>
+  </div>
+
+  <div>
+    <%= form.label :answer, style: "display: block" %>
+    <%= form.fields_for :answer do |a_form| %>
+        <%= a_form.select :team, Answer::VALID_TEAMS %>
+        <%= a_form.select :down, Answer::VALID_DOWNS %>
+        <%= a_form.select :distance, Answer::VALID_DISTANCE, selected: '10' %>
+        <%= a_form.select :yardline_team, Answer::VALID_TEAMS %>
+        <%= a_form.select :yardline_num, Answer::VALID_YARDLINE_NUM, selected: '25' %>
+        <%= a_form.select :clock_status, Answer::VALID_CLOCK_STATUS %>
+        <div>
+          <%= a_form.label :explanation, style: "display: block" %>
+          <%= a_form.text_area :explanation, size: "70x5" %>
+        </div>
+    <% end %>
   </div>
 
   <div>

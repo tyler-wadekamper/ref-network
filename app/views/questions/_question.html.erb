@@ -1,7 +1,11 @@
 <p>
-  <strong>Body:</strong>
+  <div>
+    Question
+    <% if question.author == current_user %>
+      <%= link_to 'Edit', edit_question_path(question.id) %>
+    <% end %>
+  </div>
   <%= question.body %>
-  <% if question.author == current_user %>
-    <%= link_to 'Edit', edit_question_path(question.id) %>
-  <% end %>
+
+  <%= render 'answers/answer', answer: question.answer %>
 </p>

@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
     @questions = Question.all
@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @question.build_answer
   end
 
   def create
@@ -36,6 +37,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body, :commit, :id)
+    params.require(:question).permit(:body,
+                                     answer_attributes: %i[team down distance yardline_num yardline_team clock_status explanation])
   end
 end
