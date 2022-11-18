@@ -4,6 +4,7 @@
 
 <%= turbo_frame_tag "new_question", target: "_top" %>
 
-<% @questions.each do |question| %>
-  <%= render 'question', question: question %>
+<%= render partial: "question", collection: @questions %>
+<% unless @pagy.next.nil? %>
+  <%= render partial: "next_page" %>
 <% end %>

@@ -2,7 +2,9 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
-    @questions = Question.all
+    @pagy, @questions = pagy_countless(Question.order(created_at: :desc), items: 15, cycle: false)
+
+    render "scrollable_list" if params[:page]
   end
 
   def new
