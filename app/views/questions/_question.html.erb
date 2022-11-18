@@ -3,7 +3,6 @@
     <%= question.author.first_name %> <%= question.author.last_name %>
   </div>
   <div>
-    Question
     <% if question.author == current_user %>
       <%= link_to 'Edit', edit_question_path(question.id) %>
     <% end %>

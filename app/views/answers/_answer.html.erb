@@ -1,8 +1,12 @@
-<p>
-  <div>Answer</div>
-  <%= answer.team %>
-  <%= answer.down %>/<%= answer.distance %>
-  <%= answer.yardline_team %>-<%= answer.yardline_num %>,
-  <%= answer.clock_status %>.
-  <div><%= answer.explanation %></div>
-</p>
+<div data-controller="visibility">
+  <button data-action="visibility#toggleVisibility visibility#toggleAnswerButton" data-visibility-target="button">Show Answer</button>
+  <div>
+    <span data-visibility-target="hideable" hidden>
+      <%= answer.team %>
+      <%= answer.down %><% if answer.distance %>/<% end %><%= answer.distance %>
+      <%= answer.yardline_team %>-<%= answer.yardline_num %>,
+      <%= answer.clock_status %>.
+      <div><%= answer.explanation %></div>
+    </span>
+  </div>
+</div>
