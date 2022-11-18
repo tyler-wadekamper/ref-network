@@ -1,6 +1,8 @@
-<%= link_to 'Add question', new_question_path %>
-
 <h1>Questions</h1>
+
+<%= link_to 'Add question', new_question_path, data: { turbo_frame: "new_question" } %>
+
+<%= turbo_frame_tag "new_question", target: "_top" %>
 
 <% @questions.each do |question| %>
   <%= render 'question', question: question %>

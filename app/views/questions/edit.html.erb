@@ -1,3 +1,6 @@
 <h1>Edit question</h1>
 
-<%= render 'form', question: @question %>
+<turbo-frame id="<%= dom_id @question %>">
+  <%= render 'form', question: @question %>
+  <%= link_to 'Cancel', questions_path %>
+</turbo-frame>
