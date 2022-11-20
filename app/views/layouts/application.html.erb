@@ -14,15 +14,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div>RefNetwork</div>
-    <% if user_signed_in? %>
-      <div>
-        <%= current_user.first_name %> <%= current_user.last_name %>
-      </div>
-    <% else %>
-      <%= link_to 'Log in', new_user_session_path %>
-      <%= link_to 'Sign up', new_user_registration_path %>
-    <% end %>
+    <%= render 'layouts/nav_bar' %>
 
     <%= yield %>
   </body>
