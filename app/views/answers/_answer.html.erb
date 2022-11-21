@@ -1,12 +1,16 @@
 <div data-controller="visibility">
-  <button data-action="visibility#toggleVisibility visibility#toggleAnswerButton" data-visibility-target="button" class="btn btn-outline-primary">Show Answer</button>
-  <div>
+  <button data-action="visibility#toggleVisibility visibility#toggleAnswerButton" data-visibility-target="button" data-bs-toggle="button" class="btn btn-outline-primary shadow-none">Show Answer</button>
+  <div class="card-text my-2">
     <span data-visibility-target="hideable" hidden>
-      <%= answer.team %>
-      <%= answer.down %><% if answer.distance %>/<% end %><%= answer.distance %>
-      <%= answer.yardline_team %>-<%= answer.yardline_num %>,
-      <%= answer.clock_status %>.
-      <div><%= answer.explanation %></div>
+      <div class="fw-bold">
+        <%= answer.team %>
+        <%= answer.down %><% if answer.distance %>/<% end %><%= answer.distance %>
+        <%= answer.yardline_team %>-<%= answer.yardline_num %>,
+        <%= answer.clock_status %>.
+      </div>
+      <div>
+        <%= answer.explanation %>
+      </div>
     </span>
   </div>
 </div>
