@@ -1,24 +1,24 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <div class="container-fluid mx-sm-3">
+<nav class="navbar navbar-dark fixed-top bg-dark">
+  <div class="container-fluid mx-3">
     <a class="navbar-brand" href="/questions">RefNetwork</a>
     <ul class="nav nav-pills me-auto">
-      <li class="nav-item px-sm-3">
+      <li class="nav-item px-3">
         <a class="nav-link active" aria-current="page" href="/questions">Home</a>
       </li>
     </ul>
     <% if user_signed_in? %>
-      <ul class="d-flex justify-content-end navbar-nav mb-sm-0">
+      <ul class="d-flex justify-content-end navbar-nav mb-0">
         <li class="nav-item text-white">
           <%= current_user.first_name %> <%= current_user.last_name %>
         </li>
       </ul>
     <% else %>
-      <ul class="d-flex justify-content-end navbar-nav mb-sm-0">
-        <li class="nav-item p-sm-2">
-          <%= button_to 'Log in', new_user_session_path, method: :get  %>
+      <ul class="d-flex justify-content-end nav mb-0">
+        <li class="nav-item px-2">
+          <%= button_to 'Log in', new_user_session_path, method: :get, class: 'btn btn-light' %>
         </li>
-        <li class="nav-item p-sm-2">
-          <%= button_to 'Sign up', new_user_registration_path, method: :get  %>
+        <li class="nav-item px-2">
+          <%= button_to 'Sign up', new_user_registration_path, method: :get, class: 'btn btn-light'  %>
         </li>
       </ul>
     <% end %>

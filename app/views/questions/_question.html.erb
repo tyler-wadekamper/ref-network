@@ -1,15 +1,13 @@
 <turbo-frame id="<%= dom_id question %>">
-  <p>
-    <div>
-      <%= question.author.first_name %> <%= question.author.last_name %>
-    </div>
-    <div>
-      <% if question.author == current_user %>
-        <%= link_to 'Edit', edit_question_path(question.id) %>
-      <% end %>
-    </div>
-    <%= question.body %>
-  
-    <%= render 'answers/answer', answer: question.answer %>
-  </p>
+  <div>
+    <%= question.author.first_name %> <%= question.author.last_name %>
+  </div>
+  <div>
+    <% if question.author == current_user %>
+      <%= link_to 'Edit', edit_question_path(question.id) %>
+    <% end %>
+  </div>
+  <%= question.body %>
+
+  <%= render 'answers/answer', answer: question.answer %>
 </turbo-frame>
