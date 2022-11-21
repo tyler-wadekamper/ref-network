@@ -1,6 +1,13 @@
 <h1>New question</h1>
 
 <%= turbo_frame_tag @question do %>
-  <%= render "form", question: @question %>
-  <%= link_to 'Cancel', questions_path %>
+  <div class="card my-4 text-dark bg-light shadow-sm">
+    <div class="card-body">
+      <div class="card-title fw-bold">
+        New question
+      </div>
+      <%= render "form", question: @question %>
+      <%= link_to 'Cancel', questions_path %>
+    </div>
+  </div>
 <% end %>
