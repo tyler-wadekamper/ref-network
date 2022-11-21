@@ -1,6 +1,6 @@
 <%= form_with(model: question) do |form| %>
   <% if question.errors.any? %>
-    <div style="color: red">
+    <div class="h5">
       <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
       <ul>
@@ -12,12 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label :body, style: "display: block", class: "form-label" %>
+    <%= form.label :body, style: "display: block", class: "form-label mb-0 mt-3", value: "Main text" %>
     <%= form.text_area :body, size: "70x5", class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :answer, style: "display: block", class: "form-label"  %>
+    <%= form.label :answer, style: "display: block", class: "form-label mb-0 mt-3"  %>
     <%= form.fields_for :answer do |a_form| %>
         <%= a_form.select :team, Answer::VALID_TEAMS, class: "form-select" %>
         <%= a_form.select :down, Answer::VALID_DOWNS, class: "form-select"%>
@@ -26,13 +26,13 @@
         <%= a_form.select :yardline_num, Answer::VALID_YARDLINE_NUM, selected: '25', class: "form-select" %>
         <%= a_form.select :clock_status, Answer::VALID_CLOCK_STATUS, class: "form-select" %>
         <div>
-          <%= a_form.label :explanation, style: "display: block", class: "form-label"  %>
+          <%= a_form.label :explanation, style: "display: block", class: "form-label mb-0 mt-3"  %>
           <%= a_form.text_area :explanation, size: "70x5", class: "form-control" %>
         </div>
     <% end %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="my-4">
+    <%= form.submit submit_text, class: "btn btn-outline-primary"%>
   </div>
 <% end %>

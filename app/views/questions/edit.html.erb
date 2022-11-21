@@ -1,9 +1,9 @@
 <h1>Edit question</h1>
 
 <turbo-frame id="<%= dom_id @question %>">
-  <div class="card-title fw-bold">
-    Edit question
+  <div class="card-title h5">
+    Edit Question
   </div>
-  <%= render "form", question: @question %>
+  <%= render "form", question: @question, submit_text: "Update Question" %>
   <%= link_to 'Cancel', questions_path %>
 </turbo-frame>

@@ -45,7 +45,9 @@ class QuestionsController < ApplicationController
   end
 
   def authenticate_author
-    flash[:alert] = 'You must be the author of a question to edit.'
-    redirect_to root_path unless Question.find(params[:id]).author == current_user
+    unless Question.find(params[:id]).author == current_user
+      flash[:alert] = 'You must be the author of a question to edit.'
+      redirect_to root_path
+    end
   end
 end
