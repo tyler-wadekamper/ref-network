@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_author, only: [:edit, :update]
 
   def index
     @pagy, @questions = pagy_countless(Question.order(created_at: :desc), items: 15, cycle: false)
@@ -41,5 +42,10 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:body, :id, :commit,
                                      answer_attributes: %i[team down distance yardline_num yardline_team clock_status explanation id])
+  end
+
+  def authenticate_author
+    flash[:alert] = 'You must be the author of a question to edit.'
+    redirect_to root_path unless Question.find(params[:id]).author == current_user
   end
 end

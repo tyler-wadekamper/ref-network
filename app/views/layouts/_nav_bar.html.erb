@@ -9,7 +9,7 @@
     <% if user_signed_in? %>
       <ul class="d-flex justify-content-end navbar-nav mb-0">
         <li class="nav-item text-white">
-          <%= current_user.first_name %> <%= current_user.last_name %>
+          Logged in as <%= current_user.first_name %> <%= current_user.last_name %>
         </li>
       </ul>
     <% else %>
