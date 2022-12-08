@@ -1,13 +1,17 @@
-<div class="h2">New Question</div>
-
-<%= turbo_frame_tag @question do %>
-  <div class="card my-4 text-dark bg-light shadow-sm">
-    <div class="card-body">
-      <div class="card-title h5">
-        New Question
-      </div>
-      <%= render "form", question: @question, submit_text: "Create Question" %>
-      <%= link_to 'Cancel', questions_path %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 mt-2">
+      <turbo-frame id="new_question">
+        <div class="card my-4 text-dark bg-light shadow-sm">
+          <div class="card-body">
+            <div class="card-title h5">
+              New Question
+            </div>
+            <%= render "form", question: @question, submit_text: "Create Question" %>
+            <%= link_to 'Cancel', questions_path %>
+          </div>
+        </div>
+      </turbo-frame>
     </div>
   </div>
-<% end %>
+</div>

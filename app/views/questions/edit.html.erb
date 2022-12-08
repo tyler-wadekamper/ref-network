@@ -1,9 +1,17 @@
-<h1>Edit question</h1>
-
-<turbo-frame id="<%= dom_id @question %>">
-  <div class="card-title h5">
-    Edit Question
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 mt-2">
+      <div class="card my-4 text-dark bg-light shadow-sm">
+        <turbo-frame id="<%= dom_id @question %>">
+          <div class="card-body">
+            <div class="card-title h5">
+              Edit Question
+            </div>
+            <%= render "form", question: @question, submit_text: "Update Question" %>
+            <%= link_to 'Cancel', questions_path %>
+          </div>
+        </turbo-frame>
+      </div>
+    </div>
   </div>
-  <%= render "form", question: @question, submit_text: "Update Question" %>
-  <%= link_to 'Cancel', questions_path %>
-</turbo-frame>
+</div>
