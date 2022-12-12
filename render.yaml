@@ -7,7 +7,7 @@ services:
   - type: web
     name: ref_network
     env: ruby
-    plan: free
+    plan: starter
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
