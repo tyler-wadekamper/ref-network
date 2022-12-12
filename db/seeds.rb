@@ -1,18 +1,6 @@
 require 'csv'
 require 'faker'
 
-def seed_users
-  (1..15).each do |id|
-    User.create!(
-              id: id, 
-              first_name: Faker::Name.first_name,
-              last_name: Faker::Name.last_name,
-              email: Faker::Internet.email,
-              password: "password", 
-              password_confirmation: "password")
-  end
-end
-
 def seed_questions
   current_path = File.dirname(__FILE__)
   file_path = File.join(current_path, 'seed_questions_cfo_west.csv')
@@ -30,18 +18,17 @@ def seed_questions
     question = Question.new
 
     answer = question.build_answer(team:,
-                   down:,
-                   distance:,
-                   yardline_team:,
-                   yardline_num:,
-                   clock_status:,
-                   explanation:)
+                                   down:,
+                                   distance:,
+                                   yardline_team:,
+                                   yardline_num:,
+                                   clock_status:,
+                                   explanation:)
 
-    Question.create!(author: User.all.sample,
+    Question.create!(author: User.find(1),
                      body:,
                      answer:)
   end
 end
 
-seed_users
 seed_questions
