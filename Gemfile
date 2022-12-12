@@ -11,6 +11,10 @@ gem 'pagy'
 
 gem 'bootstrap', '~> 5.1.3'
 
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
