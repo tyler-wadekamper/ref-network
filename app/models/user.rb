@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :questions, foreign_key: :author_id, class_name: 'Question'
 
+  validates_presence_of :first_name, :last_name, :email
+
   before_save do
     self.first_name = first_name.capitalize
     self.last_name = last_name.capitalize

@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :default_user, class: User do
-    first_name: { 'Henry' }
-    last_name: { 'Blathers' }
-    email { 'henry58@gmail.com' }
-    password: { 'BigHen58' }
+    first_name { 'User' }
+    last_name { 'One' }
+    email { 'user1@gmail.com' }
+    password { 'UserOnePass' }
   end
 
   factory :random_user, class: User do
