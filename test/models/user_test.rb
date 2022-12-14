@@ -30,7 +30,8 @@ class UserTest < ActiveSupport::TestCase
 
   test "#questions returns collection of authored questions" do
     user = create(:default_user)
-    authored_questions = create_list(:question, 3, author: user)
+    answer = build(:answer)
+    authored_questions = create_list(:question, 3, author: user, answer:)
     assert_equal user.questions, authored_questions
   end
 end
