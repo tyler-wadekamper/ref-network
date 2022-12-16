@@ -5,26 +5,29 @@ class QuestionTest < ActiveSupport::TestCase
     user = create(:default_user)
     answer = build(:answer)
     question = build(:question, author: user, answer:)
-    assert question.valid?
+    assert question.save
   end
 
-  test "does not save without an answer" do
+  test "is not valid without an answer" do
     user = create(:default_user)
     question = build(:question, author: user)
     assert_not question.valid?
   end
 
-  test "does not save without an author" do
+  test "is not valid without an author" do
     answer = build(:answer)
     question = build(:question, answer:)
     assert_not question.valid?
   end
 
-  test "does not save without a body" do
+  test "is not valid without a body" do
     user = create(:default_user)
     answer = build(:answer)
-    question = build(:question, author: user, answer:, body: "")
-    assert_not question.valid?
+
+    EMPTY_VALUES.each do |value|
+      question = build(:question, author: user, answer:, body: value)
+      assert_not question.valid?
+    end
   end
 
   test "errors are present when no params are provided" do

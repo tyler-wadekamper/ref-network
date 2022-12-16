@@ -3,22 +3,28 @@ require "test_helper"
 class UserTest < ActiveSupport::TestCase
   test "saves when all fields are provided" do
     user = build(:default_user)
-    assert user.valid?
+    assert user.save
   end
 
-  test "does not save without first name" do
-    user = build(:default_user, first_name: "")
-    assert_not user.valid?
+  test "is not valid without first name" do
+    EMPTY_VALUES.each do |value|
+      user = build(:default_user, first_name: value)
+      assert_not user.valid?
+    end
   end
 
-  test "does not save without last name" do
-    user = build(:default_user, last_name: "")
-    assert_not user.valid?
+  test "is not valid without last name" do
+    EMPTY_VALUES.each do |value|
+      user = build(:default_user, first_name: value)
+      assert_not user.valid?
+    end
   end
 
-  test "does not save without email" do
-    user = build(:default_user, email: "")
-    assert_not user.valid?
+  test "is not valid without email" do
+    EMPTY_VALUES.each do |value|
+      user = build(:default_user, email: value)
+      assert_not user.valid?
+    end
   end
 
   test "capitalizes names before save" do
