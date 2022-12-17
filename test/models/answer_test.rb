@@ -10,8 +10,14 @@ class AnswerTest < ActiveSupport::TestCase
     answer
   end
 
+  VALID_TEAMS = %w[A B]
+  VALID_DOWNS = %w[1 2 3 4 FK]
+  VALID_DISTANCE = ('1'..'99').to_a.append("G")
+  VALID_YARDLINE_NUM = ('1'..'50').to_a
+  VALID_CLOCK_STATUS = ['Ready', 'Snap', 'Running', 'On legal touch', 'Untimed']
+
   # team must be present and valid
-  Answer::VALID_TEAMS.each do |team|
+  VALID_TEAMS.each do |team|
     test "is valid when given #{team} as team" do
       answer = build_answer(team:)
       assert answer.valid?
@@ -35,16 +41,16 @@ class AnswerTest < ActiveSupport::TestCase
   end
 
   # down must be present and valid
-  Answer::VALID_DOWNS.each do |down|
+  VALID_DOWNS.each do |down|
     test "is valid when given #{down} as down" do
       answer = build_answer(down:)
       assert answer.valid?
     end
   end
 
-  invalid_downs = ["Punt", "A", "5", 0, "Kick"]
+  INVALID_DOWNS = ["Punt", "A", "5", 0, "Kick"]
 
-  invalid_downs.each do |down|
+  INVALID_DOWNS.each do |down|
     test "is not valid with #{down} as down" do
       answer = build_answer(down:)
       assert_not answer.valid?
@@ -52,16 +58,27 @@ class AnswerTest < ActiveSupport::TestCase
   end
 
   test "is not valid without a down" do
-
+    EMPTY_VALUES.each do |value|
+      answer = build_answer(down: value)
+      assert_not answer.valid?
+    end
   end
 
   # distance must be valid
-  test "is valid when given valid distance attributes" do
-
+  VALID_DISTANCE.each do |distance|
+    test "is valid when given #{distance} as distance" do
+      answer = build_answer(distance:)
+      assert answer.valid?
+    end
   end
 
-  test "is not valid with invalid distance attributes" do
+  INVALID_DISTANCE = [104, -1, "Nine", "Goal"]
 
+  INVALID_DISTANCE.each do |distance|
+    test "is not valid with #{distance} as distance" do
+      answer = build_answer(distance:)
+      assert_not answer.valid?
+    end
   end
 
   # yardline team must be present and valid
