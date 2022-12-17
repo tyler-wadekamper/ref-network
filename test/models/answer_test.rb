@@ -24,9 +24,9 @@ class AnswerTest < ActiveSupport::TestCase
     end
   end
 
-  invalid_teams = ["Team A", "Z", "Offense", "Receivers", 4]
+  INVALID_TEAMS = ["Team A", "Z", "Offense", "Receivers", 4]
 
-  invalid_teams.each do |team|
+  INVALID_TEAMS.each do |team|
     test "is not valid with #{team} as team" do
       answer = build_answer(team:)
       assert_not answer.valid?
@@ -72,7 +72,7 @@ class AnswerTest < ActiveSupport::TestCase
     end
   end
 
-  INVALID_DISTANCE = [104, -1, "Nine", "Goal"]
+  INVALID_DISTANCE = [104, -1, 0, "Nine", "Goal"]
 
   INVALID_DISTANCE.each do |distance|
     test "is not valid with #{distance} as distance" do
@@ -82,37 +82,65 @@ class AnswerTest < ActiveSupport::TestCase
   end
 
   # yardline team must be present and valid
-  test "is valid when given valid yardline team attributes" do
-
+  VALID_TEAMS.each do |team|
+    test "is valid when given #{team} as yardline team" do
+      answer = build_answer(yardline_team: team)
+      assert answer.valid?
+    end
   end
 
-  test "is not valid with invalid yardline team attributes" do
-
+  INVALID_TEAMS.each do |team|
+    test "is not valid with #{team} as yardline team" do
+      answer = build_answer(yardline_team: team)
+      assert_not answer.valid?
+    end
   end
 
   test "is not valid without a yardline team" do
-
+    EMPTY_VALUES.each do |value|
+      answer = build_answer(yardline_team: value)
+      assert_not answer.valid?
+    end
   end
+
+  INVALID_YARDLINE_NUM = [0, "51", -1, "Forty"]
 
   # yardline number must be present and valid
-  test "is valid when given valid yardline number attributes" do
-
+  VALID_YARDLINE_NUM.each do |num|
+    test "is valid when given #{num} as yardline number" do
+      answer = build_answer(yardline_num: num)
+      assert answer.valid?
+    end
   end
 
-  test "is not valid with invalid yardline number attributes" do
-
+  INVALID_YARDLINE_NUM.each do |num|
+    test "is not valid with #{num} as yardline number" do
+      answer = build_answer(yardline_num: num)
+      assert_not answer.valid?
+    end
   end
 
   test "is not valid without a yardline number" do
-
+    EMPTY_VALUES.each do |value|
+      answer = build_answer(yardline_num: value)
+      assert_not answer.valid?
+    end
   end
   
   # clock status must be valid
-  test "is valid when given valid clock status attributes" do
-
+  VALID_CLOCK_STATUS.each do |status|
+    test "is valid when given #{status} as clock status" do
+      answer = build_answer(clock_status: status)
+      assert answer.valid?
+    end
   end
 
-  test "is not valid with invalid clock status attributes" do
+  INVALID_CLOCK_STATUS = ["Stopped", "Hot", 0, "untimed"]
 
+  INVALID_CLOCK_STATUS.each do |status|
+    test "is not valid with #{status} as clock status" do
+      answer = build_answer(clock_status: status)
+      assert_not answer.valid?
+    end
   end
 end
