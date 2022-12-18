@@ -2,14 +2,14 @@ require "test_helper"
 
 class QuestionTest < ActiveSupport::TestCase
   test "saves a question accepting nested attributes for answer" do
-    user = create(:default_user)
+    user = create_user
     answer = build(:answer)
     question = build(:question, author: user, answer:)
     assert question.save
   end
 
   test "is not valid without an answer" do
-    user = create(:default_user)
+    user = create_user
     question = build(:question, author: user)
     assert_not question.valid?
   end
@@ -21,7 +21,7 @@ class QuestionTest < ActiveSupport::TestCase
   end
 
   test "is not valid without a body" do
-    user = create(:default_user)
+    user = create_user
     answer = build(:answer)
 
     EMPTY_VALUES.each do |value|

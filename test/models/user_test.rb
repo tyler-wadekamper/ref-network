@@ -2,7 +2,7 @@ require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   test "saves when all fields are provided" do
-    user = build(:default_user)
+    user = build_user
     assert user.save
   end
 
@@ -35,7 +35,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "#questions returns collection of authored questions" do
-    user = create(:default_user)
+    user = create_user
     answer = build(:answer)
     authored_questions = create_list(:question, 3, author: user, answer:)
     assert_equal user.questions, authored_questions

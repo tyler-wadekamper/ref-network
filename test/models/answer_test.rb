@@ -4,7 +4,7 @@ class AnswerTest < ActiveSupport::TestCase
   # answer save is tested in question_test.rb through nested attributes
 
   def build_answer(build_hash)
-    user = build(:default_user)
+    user = build_user
     answer = build(:answer, build_hash)
     build(:question, author: user, answer:)
     answer
