@@ -1,16 +1,6 @@
 require "test_helper"
-
 class QuestionsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
-
-  VALID_QUESTION_PARAMS = { question: { body: "new question",
-                                        answer_attributes: { team: "A", 
-                                                             down: "1", 
-                                                             distance: "10", 
-                                                             yardline_team: "A", 
-                                                             yardline_num: "25", 
-                                                             clock_status: "Ready", 
-                                                             explanation: "" }}}
 
   test "index action is successful" do
     get questions_url
@@ -19,7 +9,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "new action is successful when signed in" do
-    user = build_user
+    user = build_default_user
     sign_in user
     get new_question_url
     assert_response :success
@@ -28,11 +18,11 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
   test "new action redirects to sign in page when not signed in" do
     get new_question_url
     assert_redirected_to new_user_session_path
-    assert_equal 'You must be signed in to create a question.', flash[:alert]
+    assert_equal 'You must be signed in to continue.', flash[:alert]
   end
 
   test "routes to index after successful creation" do
-    user = create_user
+    user = create_default_user
     sign_in user
     assert_difference('Question.count') do
       post questions_url, params: VALID_QUESTION_PARAMS
@@ -42,11 +32,8 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "routes to new question after unsuccessful creation" do
-    user = create_user
+    user = create_default_user
     sign_in user
-
-    INVALID_QUESTION_PARAMS = VALID_QUESTION_PARAMS
-    INVALID_QUESTION_PARAMS[:body] = ""
 
     assert_no_difference('Question.count') do
       post questions_url, params: { question: INVALID_QUESTION_PARAMS }
@@ -56,8 +43,8 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
     assert_template :new
   end
 
-  test "edit action is successful" do
-    user = create_user
+  test "edit action is successful when signed in" do
+    user = create_default_user
     sign_in user
 
     post questions_url, params: VALID_QUESTION_PARAMS
@@ -65,5 +52,84 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_not_nil assigns(:question)
+  end
+
+  test "edit action is not successful when not signed in" do
+    user = create_default_user
+
+    sign_in user
+    post questions_url, params: VALID_QUESTION_PARAMS
+    sign_out user
+
+    get edit_question_url(Question.first.id)
+
+    assert_redirected_to new_user_session_path
+    assert_equal 'You must be signed in to continue.', flash[:alert]
+  end
+
+  test "edit action is not successful when not the author" do
+    user = create_default_user
+    user2 = create(:random_user)
+
+    sign_in user
+    post questions_url, params: VALID_QUESTION_PARAMS
+    sign_out user
+
+    sign_in user2
+    get edit_question_url(Question.first.id)
+
+    assert_redirected_to root_path
+    assert_equal 'You must be the author of a question to edit.', flash[:alert]
+  end
+
+  test "update action is successful when signed in" do
+    user = create_default_user
+    sign_in user
+
+    post questions_url, params: VALID_QUESTION_PARAMS
+    patch question_url(Question.first.id), params: VALID_UPDATE_PARAMS
+
+    assert_redirected_to questions_url
+    assert_equal Question.first.body, "updated question"
+    assert_not_nil assigns(:question)
+  end
+
+  test "update action is not successful when not signed in" do
+    user = create_default_user
+
+    sign_in user
+    post questions_url, params: VALID_QUESTION_PARAMS
+    sign_out user
+
+    patch question_url(Question.first.id), params: VALID_UPDATE_PARAMS
+
+    assert_redirected_to new_user_session_path
+    assert_equal 'You must be signed in to continue.', flash[:alert]
+  end
+
+  test "update action is not successful when not the author" do
+    user_one = create_default_user
+    user_two = create_random_user
+
+    sign_in user_one
+    post questions_url, params: VALID_QUESTION_PARAMS
+    sign_out user_one
+
+    sign_in user_two
+    patch question_url(Question.first.id), params: VALID_UPDATE_PARAMS
+
+    assert_redirected_to root_path
+    assert_equal 'You must be the author of a question to edit.', flash[:alert]
+  end
+
+  test "update action with invalid params is not successful" do
+    user = create_default_user
+    sign_in user
+
+    post questions_url, params: VALID_QUESTION_PARAMS
+    patch question_url(Question.first.id), params: INVALID_QUESTION_PARAMS
+
+    assert_response :unprocessable_entity
+    assert_template :edit
   end
 end
