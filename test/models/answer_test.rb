@@ -11,12 +11,6 @@ class AnswerTest < ActiveSupport::TestCase
     answer
   end
 
-  VALID_TEAMS = %w[A B]
-  VALID_DOWNS = %w[1 2 3 4 FK]
-  VALID_DISTANCE = ('1'..'99').to_a.append("G")
-  VALID_YARDLINE_NUM = ('1'..'50').to_a
-  VALID_CLOCK_STATUS = ['Ready', 'Snap', 'Running', 'On legal touch', 'Untimed']
-
   # team must be present and valid
   VALID_TEAMS.each do |team|
     test "is valid when given #{team} as team" do

@@ -3,10 +3,10 @@ require "test_helper"
 # These tests are designed to verify the HTML contents of requests and their responses for each view.
 # Any functionality that relies on javascript or requires UI interaction should be tested in system/feature_tests
 
-class QuestionPartialTest < ActionDispatch::IntegrationTest
+class QuestionsPartialTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
-  class UnauthenticatedTest < QuestionPartialTest
+  class UnauthenticatedTest < QuestionsPartialTest
     setup do
       @user = create_default_user
       sign_in @user
@@ -66,7 +66,7 @@ class QuestionPartialTest < ActionDispatch::IntegrationTest
     end
   end
 
-  class AuthenticatedTest < QuestionPartialTest
+  class AuthenticatedTest < QuestionsPartialTest
     setup do
       @user = create_default_user
       sign_in @user
@@ -82,7 +82,7 @@ class QuestionPartialTest < ActionDispatch::IntegrationTest
     end
   end
 
-  class AuthenticatedSecondUserTest < QuestionPartialTest
+  class AuthenticatedSecondUserTest < QuestionsPartialTest
     setup do
       user = create_default_user
       sign_in user

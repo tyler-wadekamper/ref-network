@@ -48,6 +48,13 @@ module ParamsDefinitions
                                                            clock_status: "Ready", 
                                                            explanation: "" } } }.freeze
 end
+module ValidAnswerAttributes
+  VALID_TEAMS = %w[A B]
+  VALID_DOWNS = %w[1 2 3 4 FK]
+  VALID_DISTANCE = ('1'..'99').to_a.append("G")
+  VALID_YARDLINE_NUM = ('1'..'50').to_a
+  VALID_CLOCK_STATUS = ['Ready', 'Snap', 'Running', 'On legal touch', 'Untimed']
+end
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
@@ -58,4 +65,5 @@ class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
   include UserBuilders
   include ParamsDefinitions
+  include ValidAnswerAttributes
 end
