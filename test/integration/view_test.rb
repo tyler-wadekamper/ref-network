@@ -9,6 +9,11 @@ class ViewTest < ActionDispatch::IntegrationTest
   class QuestionsIndexTest < ViewTest
     class UnauthenticatedTest < QuestionsIndexTest
       setup do
+        user = create_default_user
+        sign_in user
+
+        post questions_url, params: VALID_QUESTION_PARAMS
+        sign_out user
         get questions_url
       end
 
@@ -27,6 +32,9 @@ class ViewTest < ActionDispatch::IntegrationTest
       end
 
       test "does not show the edit button" do
+        assert_select "turbo-frame.question" do
+          assert_select "a", { count: 0, text: "Edit" }
+        end
       end
     end
 
@@ -34,6 +42,8 @@ class ViewTest < ActionDispatch::IntegrationTest
       setup do
         @user = create_default_user
         sign_in @user
+        post questions_url, params: VALID_QUESTION_PARAMS
+
         get questions_url
       end
 
@@ -41,32 +51,29 @@ class ViewTest < ActionDispatch::IntegrationTest
         assert_select "li", "Logged in as #{@user.first_name} #{@user.last_name}"
       end
 
-      test "does not show the edit button" do
-        post questions_url, params: VALID_QUESTION_PARAMS
-        sign_out @user
-
-        user2 = create_random_user
-        sign_in user2
-        get questions_url
-
+      test "shows the edit button" do
         assert_select "turbo-frame.question" do
-          assert_select "a", { count: 0, text: "Edit" }
+          assert_select "a", { count: 1, text: "Edit" }
         end
       end
     end
 
-    class AuthoredTest < QuestionsIndexTest
+    class AuthenticatedSecondUserTest < QuestionsIndexTest
       setup do
-        @user = create_default_user
-        sign_in @user
-
+        user = create_default_user
+        sign_in user
         post questions_url, params: VALID_QUESTION_PARAMS
+        sign_out user
+
+        user2 = create_random_user
+        sign_in user2
+
         get questions_url
       end
 
-      test "shows the edit button" do
+      test "does not show the edit button" do
         assert_select "turbo-frame.question" do
-          assert_select "a", "Edit"
+          assert_select "a", { count: 0, text: "Edit" }
         end
       end
     end
