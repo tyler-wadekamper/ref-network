@@ -3,9 +3,10 @@ require "test_helper"
 class AnswerTest < ActiveSupport::TestCase
   # answer save is tested in question_test.rb through nested attributes
 
-  def build_answer(build_hash)
+  def build_answer(build_hash = nil)
     user = build_default_user
-    answer = build(:answer, build_hash)
+    answer = build(:answer, build_hash) if build_hash
+    answer = build(:answer) unless build_hash
     build(:question, author: user, answer:)
     answer
   end
@@ -142,5 +143,10 @@ class AnswerTest < ActiveSupport::TestCase
       answer = build_answer(clock_status: status)
       assert_not answer.valid?
     end
+  end
+
+  test "#text returns a formatted string" do
+    answer = build_answer
+    assert_equal answer.text, "A 2/9 B-34, Ready."
   end
 end

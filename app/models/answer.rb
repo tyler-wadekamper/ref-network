@@ -15,4 +15,11 @@ class Answer < ApplicationRecord
   validates :clock_status, inclusion: { in: VALID_CLOCK_STATUS, message: "The clock status must be 'Ready', 'Snap', 'Running', 'On legal touch', or 'Untimed'.", allow_blank: true }
 
   validates_presence_of :team, :down, :yardline_team, :yardline_num
+
+  def text
+    total_text = "#{team} #{down}"
+    total_text += "/#{distance}" if distance
+    total_text += " #{yardline_team}-#{yardline_num}, #{clock_status}."
+    total_text
+  end
 end
