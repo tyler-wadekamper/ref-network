@@ -40,6 +40,25 @@ class QuestionPartialTest < ActionDispatch::IntegrationTest
       end
     end
 
+    test "shows the question body" do
+      assert_select "turbo-frame.question" do
+        assert_select "div.body", "#{Question.first.body}"
+      end
+    end
+
+    test "shows the show answer button" do
+      assert_select "turbo-frame.question" do
+        assert_select "button.answer-button", "Show Answer"
+      end
+    end
+
+    test "the answer content is present" do
+      assert_select "turbo-frame.question" do
+        assert_select "div.answer", "#{Question.first.answer.text}"
+        assert_select "div.explanation", "#{Question.first.answer.explanation}"
+      end
+    end
+
     test "does not show the edit button" do
       assert_select "turbo-frame.question" do
         assert_select "a", { count: 0, text: "Edit" }

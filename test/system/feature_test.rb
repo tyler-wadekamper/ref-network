@@ -53,6 +53,7 @@ class FeatureTest < ApplicationSystemTestCase
           click_on "Show Answer"
           assert_selector "div.answer", text: answer.text
           assert_selector "div.explanation", text: answer.explanation
+          assert_selector "button.answer-button", text: "Hide Answer"
         end
       end
     end
