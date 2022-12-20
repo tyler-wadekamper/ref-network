@@ -25,7 +25,7 @@ def seed_questions
                                    clock_status:,
                                    explanation:)
 
-    Question.create!(author: User.find(1),
+    Question.create!(author: User.where(email: "tyler.wadekamper@gmail.com"),
                      body:,
                      answer:)
   end
