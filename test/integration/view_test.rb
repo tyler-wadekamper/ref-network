@@ -25,6 +25,9 @@ class ViewTest < ActionDispatch::IntegrationTest
         assert_select "button", "Sign up"
         assert_select "button", "Log in"
       end
+
+      test "does not show the edit button" do
+      end
     end
 
     class AuthenticatedTest < QuestionsIndexTest
@@ -36,6 +39,35 @@ class ViewTest < ActionDispatch::IntegrationTest
 
       test "shows the user's name" do
         assert_select "li", "Logged in as #{@user.first_name} #{@user.last_name}"
+      end
+
+      test "does not show the edit button" do
+        post questions_url, params: VALID_QUESTION_PARAMS
+        sign_out @user
+
+        user2 = create_random_user
+        sign_in user2
+        get questions_url
+
+        assert_select "turbo-frame.question" do
+          assert_select "a", { count: 0, text: "Edit" }
+        end
+      end
+    end
+
+    class AuthoredTest < QuestionsIndexTest
+      setup do
+        @user = create_default_user
+        sign_in @user
+
+        post questions_url, params: VALID_QUESTION_PARAMS
+        get questions_url
+      end
+
+      test "shows the edit button" do
+        assert_select "turbo-frame.question" do
+          assert_select "a", "Edit"
+        end
       end
     end
   end
