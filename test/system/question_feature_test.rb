@@ -3,7 +3,7 @@ require "application_system_test_case"
 # These tests are high-level tests that simulate user interaction with main workflows.
 # Any response/request tests that do not rely on UI interaction or javascript should be tested in test/integration.
 
-class FeatureTest < ApplicationSystemTestCase
+class QuestionFeatureTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
 
   def create_questions(number, author: nil)
@@ -72,7 +72,7 @@ class FeatureTest < ApplicationSystemTestCase
     assert_selector "div.submit-button"
   end
 
-  class QuestionListTest < FeatureTest
+  class QuestionListTest < QuestionFeatureTest
     setup do
       create_questions(50)
     end
@@ -100,7 +100,7 @@ class FeatureTest < ApplicationSystemTestCase
     end
   end
 
-  class AnswerButtonTest < FeatureTest
+  class AnswerButtonTest < QuestionFeatureTest
     setup do
       create_questions(20)
     end
@@ -116,7 +116,7 @@ class FeatureTest < ApplicationSystemTestCase
     end
   end
 
-  class AddQuestionTest < FeatureTest
+  class AddQuestionTest < QuestionFeatureTest
     setup do
       create_questions(20)
       @user2 = create_random_user
@@ -153,7 +153,7 @@ class FeatureTest < ApplicationSystemTestCase
     end
   end
 
-  class EditQuestionTest < FeatureTest
+  class EditQuestionTest < QuestionFeatureTest
     setup do
       create_questions(20)
       @user2 = create_random_user
