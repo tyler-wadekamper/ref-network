@@ -6,11 +6,12 @@ require "application_system_test_case"
 class FeatureTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
 
-  def create_questions(number)
-    @user = create_default_user
+  def create_questions(number, author: nil)
+    @user = create_default_user unless author
     number.times do
       answer = build(:random_answer)
-      create(:random_question, author: @user, answer:)
+      create(:random_question, author: @user, answer:) unless author
+      create(:random_question, author:, answer:) if author
     end
   end
 
@@ -29,15 +30,46 @@ class FeatureTest < ApplicationSystemTestCase
 
     fill_in "question[body]", with: body_content
 
+    select_valid_answer_fields
+
+    fill_in "question[answer_attributes][explanation]", with: Faker::Lorem.paragraph
+    body_content
+  end
+
+  def select_valid_answer_fields
     select VALID_TEAMS.sample, from: "question[answer_attributes][team]"
     select VALID_DOWNS.sample, from: "question[answer_attributes][down]"
     select VALID_DISTANCE.sample, from: "question[answer_attributes][distance]"
     select VALID_TEAMS.sample, from: "question[answer_attributes][yardline_team]"
     select VALID_YARDLINE_NUM.sample, from: "question[answer_attributes][yardline_num]"
     select VALID_CLOCK_STATUS.sample, from: "question[answer_attributes][clock_status]"
+  end
 
-    fill_in "question[answer_attributes][explanation]", with: Faker::Lorem.paragraph
-    body_content
+  def assert_question_content(question, body_content)
+    answer = question.answer
+
+    within "turbo-frame#question_#{question.id}" do
+      assert_selector "div.author-name", { count: 1, text: "#{@user2.first_name} #{@user2.last_name}" }
+      assert_selector "div.body", { count: 1, text: body_content }
+      assert_answer_content(answer)
+    end
+  end
+
+  def assert_errors_present(question: nil)
+    question_id = "question_#{question.id}" if question
+    question_id = "new_question" unless question
+
+    within "turbo-frame##{question_id}" do
+      assert_selector "div.errors" do
+        assert_selector ".text-danger", text: "1 error prohibited this question from being saved:"
+      end
+    end
+  end
+
+  def assert_answer_fields_present
+    assert_selector "div.main-text"
+    assert_selector "div.answer"
+    assert_selector "div.submit-button"
   end
 
   class QuestionListTest < FeatureTest
@@ -102,13 +134,7 @@ class FeatureTest < ApplicationSystemTestCase
         sleep(0.5)
 
         question = Question.order("created_at").last
-        answer = question.answer
-
-        within "turbo-frame#question_#{question.id}" do
-          assert_selector "div.author-name", { count: 1, text: "#{@user2.first_name} #{@user2.last_name}" }
-          assert_selector "div.body", { count: 1, text: body_content }
-          assert_answer_content(answer)
-        end
+        assert_question_content(question, body_content)
       end
     end
 
@@ -118,15 +144,53 @@ class FeatureTest < ApplicationSystemTestCase
 
         click_on "Create Question"
 
-        within "turbo-frame#new_question" do
-          assert_selector "div.errors" do
-            assert_selector ".text-danger", text: "1 error prohibited this question from being saved:"
-          end
-        end
+        assert_errors_present
+        assert_answer_fields_present
 
-        assert_selector "div.main-text"
-        assert_selector "div.answer"
-        assert_selector "div.submit-button"
+        visit questions_url
+        assert_selector "div.author-name", { count: 0, text: "#{@user2.first_name} #{@user2.last_name}" }
+      end
+    end
+  end
+
+  class EditQuestionTest < FeatureTest
+    setup do
+      create_questions(20)
+      @user2 = create_random_user
+      sign_in @user2
+      create_questions(1, author: @user2)
+      visit questions_url
+      click_on "Edit"
+    end
+    class SuccessfulEditTest < EditQuestionTest
+      test "updates the question" do
+        body_content = fill_in_question(valid: true)
+
+        click_on "Update Question"
+
+        sleep(0.5)
+
+        question = Question.order("updated_at").last
+        assert_question_content(question, body_content)
+      end
+    end
+
+    class UnsuccessfulEditTest < EditQuestionTest
+      test "does not update the question" do
+        fill_in_question(valid: false)
+
+        click_on "Update Question"
+
+        sleep(0.5)
+
+        question = Question.order("updated_at").last
+
+        assert_errors_present(question:)
+        assert_answer_fields_present
+
+        visit questions_url
+        assert_selector "div.time-elapsed", { count: 0, text: "Edited less than a minute ago" }
+        assert_selector "div.author-name", { count: 1, text: "#{@user2.first_name} #{@user2.last_name}" }
       end
     end
   end
