@@ -38,7 +38,7 @@ def seed_questions(author: nil)
 end
 
 def seed_users
-  (1..15).each do |id|
+  (15..30).each do |id|
     User.create!(
               id: id, 
               first_name: Faker::Name.first_name,

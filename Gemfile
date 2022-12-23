@@ -5,11 +5,11 @@ ruby "3.1.2"
 
 gem 'devise'
 
-gem 'faker'
-
 gem 'pagy'
 
 gem 'bootstrap'
+
+gem 'nokogiri'
 
 group :development, :test do
   gem 'factory_bot_rails'

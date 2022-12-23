@@ -76,13 +76,34 @@ class UserFeatureTest < ApplicationSystemTestCase
     end
   end
 
-  # class PasswordResetTest < UserFeatureTest
-  #   setup do
-  #     visit new_user_password_url
-  #   end
+  class PasswordResetTest < UserFeatureTest
+    setup do
+      @user = create_default_user
+      visit new_user_password_url
+      fill_in "Email", with: @user.email
+      click_on "commit"
+    end
 
-  #   test "sends the password reset email" do
+    test "sends the password reset email" do
+      sleep(0.5)
+      mail = ActionMailer::Base.deliveries.last
 
-  #   end
-  # end
+      assert_equal @user.email, mail['to'].to_s
+      assert_equal 'Reset password instructions', mail.subject
+
+      parsed_body = Nokogiri::HTML(mail.body.decoded)
+      reset_link = parsed_body.css("#reset_link").map { |link| link['href'] }
+      reset_url = reset_link.first
+
+      current_port = Capybara.current_session.server.port
+      reset_url["http://127.0.0.1"] = "http://127.0.0.1:#{current_port}"
+
+      visit reset_url
+      fill_in "New password", with: "NewPassword"
+      fill_in "Confirm new password", with: "NewPassword"
+      click_on "commit"
+
+      assert_selector "div.alert-success", text: "Your password has been changed successfully. You are now signed in."
+    end
+  end
 end
