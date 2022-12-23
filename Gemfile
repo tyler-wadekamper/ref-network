@@ -5,15 +5,18 @@ ruby "3.1.2"
 
 gem 'devise'
 
-gem 'faker'
-
 gem 'pagy'
 
-gem 'bootstrap', '~> 5.1.3'
+gem 'bootstrap'
+
+gem 'nokogiri'
 
 group :development, :test do
   gem 'factory_bot_rails'
+  gem 'faker'
 end
+
+gem 'rails-controller-testing'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"

@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -9,6 +7,12 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :last_name, :email
 
   before_save do
+    capitalize_names
+  end
+
+  private
+
+  def capitalize_names
     self.first_name = first_name.capitalize
     self.last_name = last_name.capitalize
   end

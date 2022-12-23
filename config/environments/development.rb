@@ -71,4 +71,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.sass.inline_source_maps = true
+
+  config.action_mailer.default_url_options = { :host => "127.0.0.1:3000" }
 end

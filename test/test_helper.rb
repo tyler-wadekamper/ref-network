@@ -2,14 +2,68 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 
+module UserBuilders
+  def build_default_user
+    build(:default_user)
+  end
+
+  def create_default_user
+    create(:default_user)
+  end
+
+  def build_random_user
+    build(:random_user)
+  end
+
+  def create_random_user
+    create(:random_user)
+  end
+end
+
+module ParamsDefinitions
+  VALID_QUESTION_PARAMS = { question: { body: "new question",
+                                        answer_attributes: { team: "A", 
+                                                             down: "1", 
+                                                             distance: "10", 
+                                                             yardline_team: "A", 
+                                                             yardline_num: "25", 
+                                                             clock_status: "Ready", 
+                                                             explanation: "" } } }.freeze
+
+  INVALID_QUESTION_PARAMS = { question: { body: "",
+                                          answer_attributes: { team: "A", 
+                                                               down: "1", 
+                                                               distance: "10", 
+                                                               yardline_team: "A", 
+                                                               yardline_num: "25", 
+                                                               clock_status: "Ready", 
+                                                               explanation: "" } } }.freeze
+
+  VALID_UPDATE_PARAMS = { question: { body: "updated question",
+                                      answer_attributes: { team: "A", 
+                                                           down: "1", 
+                                                           distance: "10", 
+                                                           yardline_team: "A", 
+                                                           yardline_num: "25", 
+                                                           clock_status: "Ready", 
+                                                           explanation: "" } } }.freeze
+end
+module ValidAnswerAttributes
+  VALID_TEAMS = %w[A B]
+  VALID_DOWNS = %w[1 2 3 4 FK]
+  VALID_DISTANCE = ('1'..'99').to_a.append("G")
+  VALID_YARDLINE_NUM = ('1'..'50').to_a
+  VALID_CLOCK_STATUS = ['Ready', 'Snap', 'Running', 'On legal touch', 'Untimed']
+end
+
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
-  parallelize(workers: :number_of_processors)
+  # parallelize(workers: :number_of_processors)
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+  EMPTY_VALUES = [nil, "", " "]
 
   include FactoryBot::Syntax::Methods
-
-  # Add more helper methods to be used by all tests here...
+  include UserBuilders
+  include ParamsDefinitions
+  include ValidAnswerAttributes
 end
