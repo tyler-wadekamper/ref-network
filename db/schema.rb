@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_17_000037) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_204132) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,12 +28,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_000037) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "question_references", force: :cascade do |t|
+    t.bigint "question_id"
+    t.bigint "reference_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_references_on_question_id"
+    t.index ["reference_id"], name: "index_question_references_on_reference_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_questions_on_author_id"
+  end
+
+  create_table "references", force: :cascade do |t|
+    t.string "rule"
+    t.string "section"
+    t.string "article"
+    t.string "subarticle"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
