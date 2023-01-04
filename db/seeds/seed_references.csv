@@ -435,3 +435,131 @@ rule,section,article,subarticle,name
 2,34,1,,Tackle Box
 ,,,a,
 ,,,b,
+3,,,,"Periods, Time Factors and Substitutions"
+3,1,,,Start of Each Period
+3,1,1,,"Pregame, First and Third Periods"
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+3,1,2,,Second and Fourth Periods
+,,,a,
+,,,b,
+3,1,3,,
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+3,2,,,Playing Time and Intermissions
+3,2,1,,Length of Periods and Intermissions
+,,,a,
+,,,b,
+3,2,2,,Timing Adjustments
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+3,2,3,,Extension of Periods
+,,,a,
+,,,b,
+,,,c,
+3,2,4,,Timing Devices
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+3,2,5,,Minimum Time For A Play After Spiking The Ball
+3,3,,,Timeouts: Starting and Stopping the Clock
+3,3,1,,Timeout
+,,,a,
+,,,b,
+,,,c,
+3,3,2,,Starting and Stopping the Clock
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+3,3,3,,Suspending the Game
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+3,3,4,,Charged Team Timeouts
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+3,3,5,,Injury Timeout
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+3,3,6,,Violation Timeouts
+3,3,7,,Length of Timeouts
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+3,3,8,,Referee’s Notification
+,,,a,
+,,,b,
+,,,c,
+3,3,9,,Helmet Comes Off - Timeout
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+3,4,,,Delays/Clock Tactics
+3,4,1,,Delaying the Start of a Half
+,,,a,
+,,,b,
+3,4,2,,Illegal Delay of Game
+,,,a,
+,,,b,
+3,4,3,,Unfair Clock Tactics
+3,4,4,,10-Second Runoff from Game Clock - Foul
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+3,4,5,,10-Second Runoff Summary
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+3,5,,,Substitutions
+3,5,1,,Substitution Procedures
+3,5,2,,Legal Substitutions
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+3,5,3,,More Than Eleven Players on the Field
+,,,a,
+,,,b,
