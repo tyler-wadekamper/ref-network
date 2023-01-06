@@ -79,7 +79,7 @@ rule,section,article,subarticle,name
 ,,,I,
 ,,,j,
 ,,,k,
-,,,,Administration and Enforcement
+1,3,2,,Administration and Enforcement
 ,,,a,
 ,,,b,
 ,,,c,
@@ -97,7 +97,7 @@ rule,section,article,subarticle,name
 ,,,b,
 ,,,c,
 ,,,d,
-,,,,
+1,4,3,,Mandatory Equipment
 ,,,a,
 ,,,b,
 ,,,c,
@@ -117,7 +117,7 @@ rule,section,article,subarticle,name
 ,,,g,
 ,,,h,
 ,,,I,
-,,,,"Jersey Design, Color and Numerals"
+1,4,5,,"Jersey Design, Color and Numerals"
 ,,,a,
 ,,,b,
 ,,,c,
@@ -263,11 +263,11 @@ rule,section,article,subarticle,name
 ,,,d,
 2,14,,,Huddle
 2,15,,,Hurdling
-2,15,1,,Hurdling
+2,15,1,,
 ,,,a,
 ,,,b,
 2,16,,,Kicks; Kicking the Ball
-2,16,1,,Kicking the Ball; Legal and Illegal Kicks
+2,16,1,,Kicking the Ball;  Legal and Illegal Kicks
 ,,,a,
 ,,,b,
 ,,,c,
@@ -323,7 +323,7 @@ rule,section,article,subarticle,name
 2,21,1,,Scrimmage Down
 2,21,2,,Scrimmage Line
 2,22,,,Shift
-2,22,1,,Shift
+2,22,1,,
 ,,,a,
 ,,,b,
 ,,,c,
@@ -420,19 +420,22 @@ rule,section,article,subarticle,name
 ,,,c,
 ,,,d,
 2,31,,,Field Areas
-,,1,,The Field
-,,2,,Field of Play
-,,3,,End Zone
+2,31,1,,The Field
+2,31,2,,Field of Play
+2,31,3,,End Zone
 ,,,a,
 ,,,b,
 ,,,c,
-,,4,,Playing Surface
-,,5,,Playing Enclosure
-,,6,,Side Zone
+2,31,4,,Playing Surface
+2,31,5,,Playing Enclosure
+2,31,6,,Side Zone
 2,32,,,Fighting
+2,32,1,,
+,,,a,
+,,,b,
 2,33,,,Three-and-One Principle
 2,34,,,Tackle Box
-2,34,1,,Tackle Box
+2,34,1,,
 ,,,a,
 ,,,b,
 3,,,,"Periods, Time Factors and Substitutions"
@@ -634,7 +637,7 @@ rule,section,article,subarticle,name
 ,,,I,
 ,,,j,
 ,,,k,
-,,,,
+5,,,,"Series of Downs, Line to Gain"
 5,2,,,Down and Possession After a Penalty
 5,2,1,,Foul During Free Kick Down
 5,2,2,,Penalty Resulting in a New Series
