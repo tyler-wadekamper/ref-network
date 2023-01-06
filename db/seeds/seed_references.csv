@@ -742,3 +742,136 @@ rule,section,article,subarticle,name
 ,,,d,
 6,5,4,,Illegal Block or Contact
 6,5,5,,No Tackling
+7,,,,Snapping and Passing the Ball
+7,1,,,The Scrimmage
+7,1,1,,Starting With a Snap
+,,,a,
+,,,b,
+,,,c,
+7,1,2,,Shift and False Start
+,,,a,
+,,,b,
+7,1,3,,Offensive Team Requirements - Prior to the Snap
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+7,1,4,,Offensive Team Requirements - At the Snap
+,,,a,
+,,,b,
+,,,c,
+7,1,5,,Defensive Team Requirements
+,,,a,
+,,,b,
+7,1,6,,Handing the Ball Forward
+,,,a,
+,,,b,
+7,1,7,,Planned Loose Ball
+7,2,,,Backward Pass and Fumble
+7,2,1,,During Live Ball
+7,2,2,,Caught or Recovered
+,,,a,
+,,,b,
+7,2,3,,After the Ball Is Snapped
+7,2,4,,Out of Bounds
+,,,a,
+,,,b,
+,,,c,
+7,2,5,,At Rest
+,,,a,
+,,,b,
+7,3,,,Forward Pass
+7,3,1,,Legal Forward Pass
+7,3,2,,Illegal Forward Pass
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+7,3,3,,Eligibility to Touch Legal Forward Pass
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+7,3,4,,Eligibility Lost by Going Out of Bounds
+7,3,5, ,Eligibility Gained or Regained
+7,3,6,,Complete Pass
+7,3,7,,Incomplete Pass
+,,,a,
+,,,b,
+,,,c,
+7,3,8,,Illegal Contact and Pass Interference
+,,,a,
+,,,b,
+,,,c,
+7,3,9,,Pass Interference: Summary
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+7,3,10,,Ineligible Receiver Downfield
+7,3,11,,Illegal Touching
+7,3,12,,Team B Personal Foul and Unsportsmanlike Conduct During Legal Forward Pass Play
+8,,,,Scoring
+8,1,,,Value of Scores
+8,1,1,,Scoring Plays
+8,1,2,,Forfeited Games
+8,2,,,Touchdown
+8,2,1,,How Scored
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+8,3,,,Try Down
+8,3,1,,How Scored
+8,3,2,,Opportunity to Score
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+8,3,3,,Fouls During a Try Before a Change of Team Possession
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+8,3,4,,Fouls During a Try After a Change of Team Possession
+,,,a,
+,,,b,
+,,,c,
+8,3,5,,Fouls After a Try
+8,3,6,,Next Play
+8,4,,,Field Goal
+8,4,1,,How Scored
+,,,a,
+,,,b,
+8,4,2,,Next Play
+,,,a,
+,,,b,
+8,5,,,Safety
+8,5,1,,How Scored
+,,,a,
+,,,b,
+8,6,,,Touchback
+8,6,1,,When Declared
+,,,a,
+,,,b,
+8,6,2,,Snap After a Touchback
+8,7,,,Responsibility and Impetus
+8,7,1,,Responsibility
+8,7,2,,Initial Impetus
+,,,a,
+,,,b,
+,,,c,
