@@ -563,3 +563,182 @@ rule,section,article,subarticle,name
 3,5,3,,More Than Eleven Players on the Field
 ,,,a,
 ,,,b,
+4,,,,"Ball in Play, Dead Ball, Out of Bounds"
+4,1,,,Ball in Play - Dead Ball
+4,1,1,,Dead Ball Becomes Alive
+4,1,2,,Live Ball Becomes Dead
+,,,a,
+,,,b,
+,,,c,
+4,1,3,,Ball Declared Dead
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+,,,l,
+,,,m,
+,,,n,
+,,,o,
+,,,p,
+,,,q,
+,,,r,
+4,1,4,,Ball Ready for Play
+4,1,5,,Play-Clock Count
+4,2,,,Out of Bounds
+4,2,1,,Player Out of Bounds
+,,,a,
+,,,b,
+,,,c,
+4,2,2,,Held Ball Out of Bounds
+4,2,3,,Loose Ball Out of Bounds
+,,,a,
+,,,b,
+,,,c,
+4,2,4,,Out of Bounds at Forward Point
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+5,,,,"Series of Downs, Line to Gain"
+5,1,,,"A Series: Started, Broken, Renewed"
+5,1,1,,When to Award Series
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+5,1,2,,Line to Gain
+,,,a,
+,,,b,
+5,1,3,,Forward Progress
+,,,a,
+,,,b,
+,,,c,
+5,1,4,,Continuity of Downs Broken
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+,,,,
+5,2,,,Down and Possession After a Penalty
+5,2,1,,Foul During Free Kick Down
+5,2,2,,Penalty Resulting in a New Series
+,,,a,
+,,,b,
+5,2,3,,Foul Before a Change of Team Possession
+,,,a,
+,,,b,
+5,2,4,,Foul After a Change of Team Possession
+5,2,5,,Penalty Declined
+5,2,6,,Foul Between Downs
+5,2,7,,Foul Between Series
+,,,a,
+,,,b,
+5,2,8,,Fouls by Both Teams
+5,2,9,,Rule Decisions Final
+6,,,,Kicks
+6,1,,,Free Kicks
+6,1,1,,Restraining Lines
+6,1,2,,Free Kick Formation
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,1,3,,Touching and Recovery of a Free Kick; Illegal Touching
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,1,4,,Forced Touching Disregarded
+,,,a,
+,,,b,
+6,1,5,,Free Kick at Rest
+6,1,6,,Free Kick Caught or Recovered
+,,,a,
+,,,b,
+,,,c,
+6,1,7,,Ball Dead in End Zone
+,,,a,
+,,,b,
+6,1,8,,Fouls by Kicking Team
+6,1,9,,Foul Against Kicker
+6,1,10,,Illegal Wedge Formation
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,1,11,,Player Out Of Bounds
+6,1,12,,Eligibility to Block
+6,2,,,Free Kick Out of Bounds
+6,2,1,,Kicking Team
+6,2,2,,Receiving Team
+6,3,,,Scrimmage Kicks
+6,3,1,,Behind the Neutral Zone
+,,,a,
+,,,b,
+6,3,2,,Beyond the Neutral Zone
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,3,3,,All Become Eligible
+6,3,4,,Forced Touching Disregarded
+,,,a,
+,,,b,
+6,3,5,,Catch or Recovery by Receiving Team
+6,3,6,,Catch or Recovery by Kicking Team
+,,,a,
+,,,b,
+6,3,7,,Out of Bounds Between Goal Lines or at Rest Inbounds
+6,3,8,,Out of Bounds Behind Goal Line
+6,3,9,,Touching Ground On or Behind Goal Line
+6,3,10,,Legal and Illegal Kicks
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,3,11,,Loose Behind the Goal Line
+6,3,12,,Out-of-Bounds Player
+6,3,13,,Fouls by Kicking Team
+6,3,14,,Defensive Lineman on Scrimmage Kick Plays
+,,,a,
+,,,b,
+6,4,,,Opportunity to Catch a Kick
+6,4,1,,Interference With Opportunity
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+6,5,,,Fair Catch
+6,5,1,,Dead Where Caught
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+6,5,2,,No Advance
+6,5,3,,Invalid Signals: Catch or Recovery
+,,,a,
+,,,b,
+,,,c ,
+,,,d,
+6,5,4,,Illegal Block or Contact
+6,5,5,,No Tackling
