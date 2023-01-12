@@ -7,7 +7,14 @@ class Reference < ApplicationRecord
   belongs_to :parent, class_name: 'Reference', optional: true
   has_many :children, class_name: 'Reference', foreign_key: 'parent_id'
 
-  def text
+  before_save do
+    self.text = create_text
+    self.length = create_length
+  end
+
+  private
+
+  def create_text
     total_text = "#{rule}"
     total_text += "-#{section}" if section
     total_text += "-#{article}" if article
@@ -15,7 +22,7 @@ class Reference < ApplicationRecord
     total_text
   end
 
-  def length
+  def create_length
     return 1 if section.nil?
     return 2 if article.nil?
     return 3 if subarticle.nil?
