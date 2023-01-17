@@ -4,3 +4,11 @@
 body {
   padding-top: 70px;
 }
+
+// Create scroll block for reference lists
+.list-group {
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

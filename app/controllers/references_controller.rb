@@ -14,7 +14,6 @@ class ReferencesController < ApplicationController
     end
     
     @references += new_references
-
     @references = @references.uniq.sort_by(&:created_at)
 
     respond_to do |format|

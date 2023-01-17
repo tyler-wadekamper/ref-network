@@ -1,7 +1,8 @@
 <%= link_to reference, class: "list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-start" do %>
-  <div class="">
+  <% spacing = "&ensp;" * reference.length  %>
+  <div>
     <span class="fw-bold">
-      <%= highlight(reference.text, params.dig(:reference_search)) %>
+      <%= highlight(spacing + reference.text, params.dig(:reference_search)) %>
     </span>
     <%= highlight(" - #{reference.name}", params.dig(:reference_search)) if reference.name %>
   </div>
