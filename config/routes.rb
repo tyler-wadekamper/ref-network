@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, only: [:sessions, :registrations, :passwords]
   resources :questions, only: [:edit, :new, :create, :index, :update]
   resources :answers, only: [:edit, :new, :create, :update]
-  
+
   resources :references do
     collection do
       post :search

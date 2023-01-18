@@ -32,6 +32,11 @@
     <% end %>
   </div>
 
+  <div class="question-references">
+    <%= form.label "References" %>
+    <%= form.select :reference_ids, Reference.pluck(:text, :id), {}, { multiple: true, data: { controller: 'slim', slim_target: 'field' } } %>
+  </div>
+
   <div class="my-4 submit-button">
     <%= form.submit submit_text, class: "btn btn-outline-primary" %>
   </div>
