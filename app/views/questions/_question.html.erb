@@ -29,7 +29,12 @@
             <%= question.body %>
         </div>
 
-        <%= render 'answers/answer', answer: question.answer %>
+        <div class="answer-references-button-container" data-controller="visibility">
+          <%= render 'answers/answer_button' %>
+          <%= render 'references/references_button' %>
+          <%= render question.answer %>
+          <%= render 'references/question_references_list', references: question.references_by_rule_order %>
+        </div>
       </turbo-frame>
     </div>
   </div>

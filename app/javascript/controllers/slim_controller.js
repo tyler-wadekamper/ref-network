@@ -6,7 +6,7 @@ import SlimSelect from "slim-select";
 export default class extends Controller {
   connect() {
     new SlimSelect({
-      select: "#reference-select",
+      select: "#question_reference_ids",
     });
   }
 }
