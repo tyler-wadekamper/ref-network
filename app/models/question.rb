@@ -10,6 +10,6 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :answer
 
   def references_by_rule_order
-    references.all.order('created_at DESC')
+    references.all.sort_by(&:created_at)
   end
 end

@@ -34,7 +34,7 @@
 
   <div>
     <%= form.label "References", class: "form-label mb-0 mt-3" %>
-    <%= form.select :reference_ids, Reference.pluck(:label, :id), {}, { multiple: true, data: { controller: 'slim', slim_target: 'field' } } %>
+    <%= form.select :reference_ids, Reference.all.sort_by(&:created_at).pluck(:label, :id), {}, { multiple: true, data: { controller: 'slim', slim_target: 'field' } } %>
   </div>
 
   <div class="my-4 submit-button">

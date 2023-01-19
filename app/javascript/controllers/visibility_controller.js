@@ -20,11 +20,26 @@ export default class extends Controller {
   }
 
   toggleAnswerButton() {
-    let target = this.buttonTarget;
-    if (target.textContent == "Show Answer") {
-      target.textContent = "Hide Answer";
-    } else {
-      target.textContent = "Show Answer";
-    }
+    this.buttonTargets.forEach((el) => {
+      if (el.classList.contains("answer-button")) {
+        if (el.textContent == "Show Answer") {
+          el.textContent = "Hide Answer";
+        } else {
+          el.textContent = "Show Answer";
+        }
+      }
+    });
+  }
+
+  toggleReferencesButton() {
+    this.buttonTargets.forEach((el) => {
+      if (el.classList.contains("references-button")) {
+        if (el.textContent == "Show Rule References") {
+          el.textContent = "Hide Rule References";
+        } else {
+          el.textContent = "Show Rule References";
+        }
+      }
+    });
   }
 }
