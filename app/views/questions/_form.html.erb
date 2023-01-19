@@ -32,9 +32,11 @@
     <% end %>
   </div>
 
-  <div class="question-references">
+  <div>
     <%= form.label "References" %>
-    <%= form.select :reference_ids, Reference.pluck(:text, :id), {}, { multiple: true, data: { controller: 'slim', slim_target: 'field' } } %>
+    <select id="reference-select" data-controller="slim" data-slim_target="field" multiple>
+      <%= options_for_select(Reference.all.pluck(:label, :id)) %>
+    </select>
   </div>
 
   <div class="my-4 submit-button">

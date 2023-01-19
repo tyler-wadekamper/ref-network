@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_12_204849) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_19_002857) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_204849) do
     t.bigint "parent_id"
     t.string "text"
     t.integer "length"
+    t.string "label"
     t.index ["parent_id"], name: "index_references_on_parent_id"
   end
 

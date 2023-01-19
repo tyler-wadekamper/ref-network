@@ -10,6 +10,7 @@ class Reference < ApplicationRecord
   before_save do
     self.text = create_text
     self.length = create_length
+    self.label = create_label
   end
 
   private
@@ -28,5 +29,11 @@ class Reference < ApplicationRecord
     return 3 if subarticle.nil?
 
     return 4
+  end
+
+  def create_label
+    return text + " - " + name unless name.nil?
+
+    text
   end
 end

@@ -12,3 +12,31 @@ body {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+// added reference in question creation
+.ss-list {
+}
+
+.ss-value {
+  background: none !important;
+  border: 1px solid black;
+}
+
+.ss-value-text {
+  font-size: 1rem;
+  color: black;
+  padding-right: 0.3rem;
+}
+
+.ss-value-delete {
+  color: black;
+  margin-left: 1rem;
+  font-size: 1rem;
+  border-left: 1px solid black;
+  padding-left: 0.5rem;
+  padding-right: 0.2rem;
+}
+
+.ss-value-delete:hover {
+  color: red;
+}
