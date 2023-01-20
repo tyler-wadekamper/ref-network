@@ -26,4 +26,15 @@ class ReferencesController < ApplicationController
       end
     end
   end
+
+  def show
+    @reference = Reference.find(params[:id])
+
+    references = Reference.where("text LIKE ?", "#{@reference.text}%") # your query to get the set of references
+    questions = Question.joins(:references).where(references: {id: references.pluck(:id)})
+
+    @pagy, @questions = pagy_countless(questions.order(created_at: :desc), items: 15, cycle: false)
+
+    render "scrollable_list" if params[:page]
+  end
 end
