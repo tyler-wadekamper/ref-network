@@ -18,7 +18,7 @@ class ReferencesController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: [
+        render turbo_stream: [ 
           turbo_stream.update("search_results",
           partial: "references/search_results",
           locals: { references: @references })
