@@ -37,3 +37,11 @@ body {
 .ss-value-delete:hover {
   color: red;
 }
+
+.text-underline-hover {
+  text-decoration: none;
+}
+
+.text-underline-hover:hover {
+  text-decoration: underline;
+}

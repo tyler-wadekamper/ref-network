@@ -1,6 +1,8 @@
 <div class="references-container" data-visibility-target="hideable" hidden>
-  <span class="fw-bold">
-    <%= reference.text %>
-  </span>
-  <%= " - #{reference.name}" if reference.name %>
-</div>
+  <%= link_to reference, class: "text-underline-hover text-dark", target: "_top" do %>
+    <span class="fw-bold">
+      <%= reference.text %>
+    </span>
+    <%= " - #{reference.name}" if reference.name %>
+  </div>
+<% end %>
