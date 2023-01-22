@@ -14,6 +14,7 @@ def seed_questions(author: nil)
     yardline_num = row.field('yardline_num')
     clock_status = row.field('clock_status')
     explanation = row.field('explanation')
+    references_text = row.field('references').gsub(/\s+/, '').split(',')
 
     question = Question.new
 
@@ -26,13 +27,17 @@ def seed_questions(author: nil)
                                    explanation:)
 
     if author
-      Question.create!(author:,
+      question = Question.create!(author:,
                        body:,
                        answer:)
     else
-      Question.create!(author: User.all.sample,
+      question = Question.create!(author: User.all.sample,
                        body:,
                        answer:)
+    end
+
+    references_text.each do |reference|
+      question.references << Reference.where("text = ?", reference)
     end
   end
 end
