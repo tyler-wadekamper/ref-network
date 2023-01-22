@@ -8,7 +8,7 @@
       <%= highlight(" - #{reference.name}", params.dig(:reference_search)) if reference.name %>
     </div>
     <span class="badge bg-primary rounded-pill">
-      <%= reference.questions.count %>
+      <%= reference.child_questions.count %>
     </span>
   <% end %>
 <% end %>

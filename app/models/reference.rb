@@ -13,6 +13,11 @@ class Reference < ApplicationRecord
     self.label = create_label
   end
 
+  def child_questions
+    child_references = Reference.where("text LIKE ?", "#{self.text}%")
+    Question.joins(:references).where(references: {id: child_references.pluck(:id)})
+  end
+
   private
 
   def create_text
