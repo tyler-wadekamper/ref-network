@@ -27,7 +27,7 @@ module QuestionBuilder
     questions = []
     quantity.times do
       answer = build(:random_answer)
-      questions << create(:random_question, author: user, answer:)
+      questions << build(:random_question, author: user, answer:)
     end
     questions
   end

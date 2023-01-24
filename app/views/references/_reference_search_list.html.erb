@@ -1,5 +1,5 @@
 <% references.each do |reference| %>
-  <%= link_to reference, class: "list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-start" do %>
+  <%= link_to reference, class: "list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-start", id: "reference_link_#{reference.id}" do %>
     <% spacing = "&ensp;" * reference.length  %>
     <div>
       <span class="fw-bold">

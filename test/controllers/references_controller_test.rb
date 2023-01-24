@@ -62,26 +62,61 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
       assert_select 'a', 5
     end
   end
+  
+  class ReferencesWithQuestionsTest < ReferencesControllerTest
+    setup do
+      @parent = Reference.where("text = '6'").first
+      @child = Reference.where("text = '6-1-2'").first
+      @grandchild = Reference.where("text = '6-1-2.c'").first
+  
+      @parent.questions = random_questions(3)
+      @child.questions = random_questions(3)
+      @grandchild.questions = random_questions(3)
+    end
 
-  test "show action displays all recursive child questions" do
-    parent = Reference.where("text = ?", '6')[0]
-    child = Reference.where("text = ?", '6-1-2')[0]
-    grandchild = Reference.where("text = ?", '6-1-2.c')[0]
+    test "search given a rule returns the correct number of child questions" do
+      submit_search('6')
+      assert_response :success
 
-    parent.questions = random_questions(5)
-    child.questions = random_questions(5)
-    grandchild.questions = random_questions(5)
-    
-    get reference_url(parent)
-    assert_response :success
-    assert_select 'div.question-card', 15
+      assert_select "a#reference_link_#{@parent.id}" do
+        assert_select 'span.badge', '9'
+      end
+    end
 
-    get reference_url(child)
-    assert_response :success
-    assert_select 'div.question-card', 10
+    test "search given an article returns the correct number of child questions" do
+      submit_search('6-1-2')
+      assert_response :success
 
-    get reference_url(grandchild)
-    assert_response :success
-    assert_select 'div.question-card', 5
+      assert_select "a#reference_link_#{@child.id}" do
+        assert_select 'span.badge', '6'
+      end
+    end
+
+    test "search given a subarticle returns the correct number of child questions" do
+      submit_search('6-1-2.c')
+      assert_response :success
+
+      assert_select "a#reference_link_#{@grandchild.id}" do
+        assert_select 'span.badge', '3'
+      end
+    end
+  
+    test "show for a rule displays all recursive child questions" do
+      get reference_url(@parent)
+      assert_response :success
+      assert_select 'div.question-card', 9
+    end
+
+    test "show for an article displays all recursive child questions" do
+      get reference_url(@child)
+      assert_response :success
+      assert_select 'div.question-card', 6
+    end
+
+    test "show for a subarticle displays all recursive child questions" do
+      get reference_url(@grandchild)
+      assert_response :success
+      assert_select 'div.question-card', 3
+    end
   end
 end
