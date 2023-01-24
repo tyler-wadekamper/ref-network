@@ -14,4 +14,20 @@ FactoryBot.define do
     subarticle { %w[a..j].sample }
     name { Faker::Lorem.sentence }
   end
+
+  factory :nil_reference, class: Reference do
+    rule { %w[1..12].sample }
+    section { nil }
+    article { nil }
+    subarticle { nil }
+    name { nil }
+  end
+
+  factory :nil_reference_with_name, class: Reference do
+    rule { %w[1..12].sample }
+    section { nil }
+    article { nil }
+    subarticle { nil }
+    name { Faker::Lorem.sentence }
+  end
 end

@@ -20,6 +20,40 @@ module UserBuilders
   end
 end
 
+module QuestionBuilder
+  def random_questions(quantity)
+    user = create_random_user
+    
+    questions = []
+    quantity.times do
+      answer = build(:random_answer)
+      questions << create(:random_question, author: user, answer:)
+    end
+    questions
+  end
+end
+
+module ReferenceSamples
+  def build_sample_references(rule_string)
+    parent = create(:nil_reference_with_name, rule: rule_string)
+
+    ('1'..'3').each do |section|
+      rule_child = create(:nil_reference_with_name, rule: rule_string, section:)
+      parent.children << rule_child
+
+      ('1'..'3').each do |article|
+        section_child = create(:nil_reference_with_name, rule: rule_string, section:, article:)
+        rule_child.children << section_child
+
+        ('a'..'c').each do |subarticle|
+          article_child = create(:nil_reference, rule: rule_string, section:, article:, subarticle:)
+          section_child.children << article_child
+        end
+      end
+    end
+  end
+end
+
 module ParamsDefinitions
   VALID_QUESTION_PARAMS = { question: { body: "new question",
                                         answer_attributes: { team: "A", 
@@ -66,4 +100,6 @@ class ActiveSupport::TestCase
   include UserBuilders
   include ParamsDefinitions
   include ValidAnswerAttributes
+  include ReferenceSamples
+  include QuestionBuilder
 end
