@@ -34,7 +34,7 @@ module QuestionBuilder
 end
 
 module ReferenceSamples
-  def build_sample_references(rule_string)
+  def create_sample_references(rule_string)
     parent = create(:nil_reference_with_name, rule: rule_string)
 
     ('1'..'3').each do |section|

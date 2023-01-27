@@ -8,7 +8,7 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
   end
 
   setup do
-    build_sample_references('6')
+    create_sample_references('6')
   end
 
   test "search given a rule returns the correct references" do
