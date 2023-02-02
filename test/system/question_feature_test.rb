@@ -8,10 +8,11 @@ class QuestionFeatureTest < ApplicationSystemTestCase
 
   def create_questions(number, author: nil)
     @user = create_default_user unless author
+    reference_ids = Reference.all.sample(5).map(&:id)
     number.times do
       answer = build(:random_answer)
-      create(:random_question, author: @user, answer:) unless author
-      create(:random_question, author:, answer:) if author
+      create(:random_question, author: @user, answer:, reference_ids:) unless author
+      create(:random_question, author:, answer:, reference_ids:) if author
     end
   end
 
@@ -22,7 +23,15 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     assert_selector "button.answer-button", text: "Hide Answer"
   end
 
-  def fill_in_question(valid: true)
+  def assert_references_content(question)
+    click_on "Show Rule References"
+    question.references.each do |reference|
+      assert_selector 'a', text: /.*#{reference.name}/ if reference.name
+      assert_selector 'span', text: reference.text
+    end
+  end
+
+  def fill_in_question(valid: true, edit: false)
     fake_body = Faker::Lorem.paragraph
 
     body_content = fake_body if valid
@@ -31,6 +40,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     fill_in "question[body]", with: body_content
 
     select_valid_answer_fields
+    select_random_reference_fields unless edit
 
     fill_in "question[answer_attributes][explanation]", with: Faker::Lorem.paragraph
     body_content
@@ -45,6 +55,16 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     select VALID_CLOCK_STATUS.sample, from: "question[answer_attributes][clock_status]"
   end
 
+  def select_random_reference_fields
+    find('div.ss-main').click
+    Reference.all.sample(5).each do |reference|
+      fill_in "Search", with: reference.text
+      find('div.ss-option', text: reference.label).click
+    end
+
+    find('span.ss-cross').click if has_css?('span.ss-cross')
+  end
+
   def assert_question_content(question, body_content)
     answer = question.answer
 
@@ -52,6 +72,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       assert_selector "div.author-name", { count: 1, text: "#{@user2.first_name} #{@user2.last_name}" }
       assert_selector "div.body", { count: 1, text: body_content }
       assert_answer_content(answer)
+      assert_references_content(question)
     end
   end
 
@@ -74,6 +95,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
 
   class QuestionListTest < QuestionFeatureTest
     setup do
+      create_sample_references('6')
       create_questions(50)
     end
 
@@ -100,8 +122,9 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     end
   end
 
-  class AnswerButtonTest < QuestionFeatureTest
+  class AnswerReferenceButtonTest < QuestionFeatureTest
     setup do
+      create_sample_references('6')
       create_questions(20)
     end
 
@@ -114,10 +137,20 @@ class QuestionFeatureTest < ApplicationSystemTestCase
         end
       end
     end
+
+    test "shows the reference for the first three questions" do
+      visit questions_url
+      Question.limit(3).order(created_at: :desc).each do |question|
+        within "turbo-frame#question_#{question.id}" do
+          assert_references_content(question)
+        end
+      end
+    end
   end
 
   class AddQuestionTest < QuestionFeatureTest
     setup do
+      create_sample_references('6')
       create_questions(20)
       @user2 = create_random_user
       sign_in @user2
@@ -155,6 +188,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
 
   class EditQuestionTest < QuestionFeatureTest
     setup do
+      create_sample_references('6')
       create_questions(20)
       @user2 = create_random_user
       sign_in @user2
@@ -164,7 +198,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     end
     class SuccessfulEditTest < EditQuestionTest
       test "updates the question" do
-        body_content = fill_in_question(valid: true)
+        body_content = fill_in_question(valid: true, edit: true)
 
         click_on "Update Question"
 
@@ -177,7 +211,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
 
     class UnsuccessfulEditTest < EditQuestionTest
       test "does not update the question" do
-        fill_in_question(valid: false)
+        fill_in_question(valid: false, edit: true)
 
         click_on "Update Question"
 

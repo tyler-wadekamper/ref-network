@@ -126,6 +126,10 @@ class QuestionsFormTest < ActionDispatch::IntegrationTest
         assert_select "div.errors", { count: 0 }
       end
 
+      test "shows reference select dropdown" do
+        assert_select "select#question_reference_ids", 1
+      end
+
       test "shows create question button" do
         assert_select "input[value=?]", "Create Question"
       end

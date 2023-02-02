@@ -120,6 +120,7 @@ class QuestionsPartialTest < ActionDispatch::IntegrationTest
         assert_select "div.references-container" do
           assert_select 'a', /.*#{reference.name}/ if reference.name
           assert_select 'span', reference.text
+          assert_select 'a[href=?]', "/references/#{reference.id}"
         end
       end
     end
