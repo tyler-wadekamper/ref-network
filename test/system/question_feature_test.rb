@@ -55,9 +55,9 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     select VALID_CLOCK_STATUS.sample, from: "question[answer_attributes][clock_status]"
   end
 
-  def select_random_reference_fields
+  def select_random_reference_fields(count: 5)
     find('div.ss-main').click
-    Reference.all.sample(5).each do |reference|
+    Reference.all.sample(count).each do |reference|
       fill_in "Search", with: reference.text
       find('div.ss-option', text: reference.label).click
     end
@@ -197,15 +197,30 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       click_on "Edit"
     end
     class SuccessfulEditTest < EditQuestionTest
-      test "updates the question" do
-        body_content = fill_in_question(valid: true, edit: true)
-
+      def update_and_check_question(body_content)
         click_on "Update Question"
 
         sleep(0.5)
 
         question = Question.order("updated_at").last
         assert_question_content(question, body_content)
+      end
+
+      test "updates the question" do
+        body_content = fill_in_question(valid: true, edit: true)
+        update_and_check_question(body_content)
+      end
+
+      test "adds a reference to the question" do
+        body_content = fill_in_question(valid: true, edit: true)
+        select_random_reference_fields(count: 1)
+        update_and_check_question(body_content)
+      end
+
+      test "removes a reference from the question" do
+        body_content = fill_in_question(valid: true, edit: true)
+        first('span.ss-value-delete').click
+        update_and_check_question(body_content)
       end
     end
 
