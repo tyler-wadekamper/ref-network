@@ -34,6 +34,6 @@ class ReferencesController < ApplicationController
 
     @pagy, @questions = pagy_countless(child_questions.order(created_at: :desc), items: 15, cycle: false)
 
-    render "scrollable_list" if params[:page]
+    render "questions/scrollable_list" if params[:page]
   end
 end

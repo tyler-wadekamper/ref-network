@@ -6,16 +6,6 @@ require "application_system_test_case"
 class QuestionFeatureTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
 
-  def create_questions(number, author: nil)
-    @user = create_default_user unless author
-    reference_ids = Reference.all.sample(5).map(&:id)
-    number.times do
-      answer = build(:random_answer)
-      create(:random_question, author: @user, answer:, reference_ids:) unless author
-      create(:random_question, author:, answer:, reference_ids:) if author
-    end
-  end
-
   def assert_answer_content(answer)
     click_on "Show Answer"
     assert_selector "div.answer", text: answer.text
@@ -99,26 +89,11 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       create_questions(50)
     end
 
-    def scroll_down
-      page.execute_script "window.scrollBy(0,10000)"
-    end
 
-    def assert_questions(number)
-      assert_selector "turbo-frame.question", count: number
-    end
 
     test "shows the list of questions on scroll" do
       visit questions_url
-      assert_questions(15)
-
-      scroll_down
-      assert_questions(30)
-
-      scroll_down
-      assert_questions(45)
-
-      scroll_down
-      assert_questions(50)
+      assert_scroll_functionality
     end
   end
 

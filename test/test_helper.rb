@@ -31,6 +31,17 @@ module QuestionBuilder
     end
     questions
   end
+
+  def create_questions(number, author: nil, reference: nil)
+    @user = create_default_user unless author
+    reference_ids = Reference.all.sample(5).map(&:id) unless reference
+    reference_ids = [reference.id] if reference
+    number.times do
+      answer = build(:random_answer)
+      create(:random_question, author: @user, answer:, reference_ids:) unless author
+      create(:random_question, author:, answer:, reference_ids:) if author
+    end
+  end
 end
 
 module ReferenceSamples
@@ -51,6 +62,31 @@ module ReferenceSamples
         end
       end
     end
+  end
+end
+
+module PageNavigation
+  def scroll_down
+    page.execute_script "window.scrollBy(0,10000)"
+  end
+end
+
+module QuestionContent
+  def assert_questions(number)
+    assert_selector "turbo-frame.question", count: number
+  end
+
+  def assert_scroll_functionality
+    assert_questions(15)
+
+    scroll_down
+    assert_questions(30)
+
+    scroll_down
+    assert_questions(45)
+
+    scroll_down
+    assert_questions(50)
   end
 end
 
@@ -102,4 +138,6 @@ class ActiveSupport::TestCase
   include ValidAnswerAttributes
   include ReferenceSamples
   include QuestionBuilder
+  include PageNavigation
+  include QuestionContent
 end

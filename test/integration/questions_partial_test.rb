@@ -102,7 +102,7 @@ class QuestionsPartialTest < ActionDispatch::IntegrationTest
     end
   end
 
-  class ReferenceLinkTest < QuestionsPartialTest
+  class ReferenceTest < QuestionsPartialTest
     setup do
       user = create_default_user
       answer = build(:answer)
