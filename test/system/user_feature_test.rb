@@ -28,7 +28,7 @@ class UserFeatureTest < ApplicationSystemTestCase
         user = fill_in_new_user_fields(valid: true)
 
         assert_selector "div.alert-success", text: "Welcome! You have signed up successfully."
-        assert_selector "li", text: "Logged in as #{user.first_name} #{user.last_name}"
+        assert_selector ".nav-item", text: "Logged in as #{user.first_name} #{user.last_name}"
       end
     end
 

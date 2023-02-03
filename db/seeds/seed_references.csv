@@ -1,0 +1,1120 @@
+rule,section,article,subarticle,name
+1,,,,"The Game, Field, Players and Equipment"
+1,1,,,General Provisions
+1,1,1,,The Game
+,,,a,
+,,,b,
+1,1,2,,Goal Lines
+1,1,3,,Winning Team and Final Score
+,,,a,
+,,,b,
+1,1,4,,Game Officials
+1,1,5,,Team Captains
+1,1,6,,Persons Subject to the Rules
+,,,a,
+,,,b,
+1,1,7,,Member Institutions Subject to the Rules
+,,,a,
+,,,b,
+,,,c,
+1,2,,,The Field
+1,2,1,,Dimensions and Markings
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+,,,I,
+1,2,2,,Marking Boundary Areas
+1,2,3,,Limit Lines
+,,,a,
+,,,b,
+,,,c,
+1,2,4,,Team Area and Coaching Box
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+1,2,5,,Goals
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+1,2,6,,Pylons
+1,2,7,,Line-to-Gain and Down Indicators
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+1,2,8,,Markers or Obstructions
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+1,2,9,,Field Surface
+,,,a,
+,,,b,
+1,3,,,The Ball
+1,3,1,,Specifications
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+1,3,2,,Administration and Enforcement
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+1,3,3,,Marking Balls
+1,4,,,Players and Playing Equipment
+1,4,1,,Recommended Numbering
+1,4,2,,Players’ Numbering
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+1,4,3,,Mandatory Equipment
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+1,4,4,,Specifications: Mandatory Equipment
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+1,4,5,,"Jersey Design, Color and Numerals"
+,,,a,
+,,,b,
+,,,c,
+1,4,6,,Optional Equipment
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+1,4,7,,Illegal Equipment
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+,,,l,
+1,4,8,,Mandatory and Illegal Equipment Enforcement
+,,,a,
+,,,b,
+,,,c,
+1,4,9,,Coaches’ Certification
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+1,4,10,,Prohibited Signal Devices
+1,4,11,,Prohibited Field Equipment
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+1,4,12,,"Coaches’ Phones, Headsets and Communication Devices"
+,,,a,
+,,,b,
+,,,c,
+1,4,13,,Referee Communication
+2,,,,Definitions
+2,1,,,Approved Rulings and Official’s Signals
+2,1,1,,
+,,,a,
+,,,b,
+2,2,,,"The ball: Live, Dead, Loose, Ready for Play"
+2,2,1,,Live Ball
+2,2,2,,Dead Ball
+2,2,3,,Loose Ball
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,2,4,,When Ball is Ready for Play
+,,,a,
+,,,b,
+2,3,,,Blocking
+2,3,1,,Blocking
+,,,a,
+,,,b,
+2,3,2,,Below Waist
+,,,a,
+,,,b,
+2,3,3,,Chop Block
+2,3,4,,Block in the Back
+2,3,5,,Frame of the Body
+2,3,6,,Blocking Zone
+2,3,7,,Blind-Side Block
+2,4,,,"Catch, Recovery, Possession"
+2,4,1,,Possession
+,,,a,
+,,,b,
+,,,c,
+2,4,2,,Belongs To
+2,4,3,,"Catch, Interception, Recovery"
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+2,4,4,,Simultaneous Catch or Recovery
+2,5,,,Clipping
+2,5,1,,Clipping
+,,,a,
+,,,b,
+2,6,,,Deliberate Dead-Ball Advance
+2,7,,,"Down, Between Downs and Loss of Down"
+2,7,1,,Down
+2,7,2,,Between Downs
+2,7,3,,Loss of down
+2,8,,,Fair Catch
+2,8,1,,Fair Catch
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,8,2,,Valid Signal
+2,8,3,,Invalid Signal
+,,,a,
+,,,b,
+,,,c,
+2,9,,,"Forward, Beyond and Forward Progress"
+2,9,1,,"Forward, Beyond"
+2,9,2,,Forward Progress
+2,10,,,Foul and Violation
+2,10,1,,Foul
+2,10,2,,Forward Progress
+2,10,3,,Flagrant Personal Foul
+2,10,4,,Violation
+2,11,,,"Fumble, Muff; Batting and Touching the Ball; Blocking a Kick"
+2,11,1,,Fumble
+2,11,2,,Muff
+2,11,3,,Batting
+2,11,4,,Touching
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,11,5,,Blocking a Scrimmage Kick
+2,12,,,Lines
+2,12,1,,Sidelines
+2,12,2,,Goal Lines and Pylons
+2,12,3,,End Lines
+2,12,4,,Boundary Lines
+2,12,5,,Restraining Lines
+2,12,6,,Yard Lines
+2,12,7,,Hash Marks
+2,12,8,,Nine-Yard Marks
+2,13,,,Handing the Ball
+2,13,1,,Handing the Ball
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,14,,,Huddle
+2,15,,,Hurdling
+2,15,1,,
+,,,a,
+,,,b,
+2,16,,,Kicks; Kicking the Ball
+2,16,1,,Kicking the Ball;  Legal and Illegal Kicks
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,16,2,,Punt
+2,16,3,,Drop Kick
+2,16,4,,Place Kick
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,16,5,,Free Kick
+,,,a,
+,,,b,
+2,16,6,,Kickoff
+2,16,7,,Scrimmage Kick
+,,,a,
+,,,b,
+,,,c,
+2,16,8,,Return Kick
+2,16,9,,Field Goal Attempt
+2,16,10,,Scrimmage Kick Formation
+,,,a,
+,,,b,
+2,17,,,The Neutral Zone
+2,17,1,,
+,,,a,
+,,,b,
+,,,c,
+2,18,,,Encroachment and Offside
+2,18,1,,Encroachment
+2,18,2,,Offside
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+2,19,,,Passes
+2,19,1,,Passing
+2,19,2,,Forward and Backward Pass
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,19,3,,Crosses Neutral Zone
+,,,a,
+,,,b,
+,,,c,
+2,19,4,,Catchable Forward Pass
+2,20,,,Penalty
+2,21,,,Scrimmage
+2,21,1,,Scrimmage Down
+2,21,2,,Scrimmage Line
+2,22,,,Shift
+2,22,1,,
+,,,a,
+,,,b,
+,,,c,
+2,23,,,Snapping the Ball
+2,23,1,,Snapping the Ball
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+2,24,,,Series and Possession Series
+2,24,1,,Series
+2,24,2,,Possession Series
+2,25,,,Spots
+2,25,1,,Enforcement Spot
+2,25,2,,Previous Spot
+2,25,3,,Succeeding Spot
+2,25,4,,Dead-Ball Spot
+2,25,5,,Spot of the Foul
+2,25,6,,Out-of-Bounds Spot
+2,25,7,,Inbounds Spot
+2,25,8,,Spot Where Run Ends
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+2,25,9,,Spot Where Kick Ends
+2,25,10,,Basic Spot
+2,25,11,,Postscrimmage Kick Spot
+,,,a,
+,,,b,
+2,26,,,Tackling
+2,27,,,Team and Player Designations
+2,27,1,,Teams A and B
+2,27,2,,Offensive and Defensive Teams
+2,27,3,,Kicker and Holder
+,,,a,
+,,,b,
+2,27,4,,Lineman and Back
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,27,5,,Passer
+2,27,6,,Player
+,,,a,
+,,,b,
+,,,c,
+2,27,7,,Runner and Ball Carrier
+,,,a,
+,,,b,
+2,27,8,,Snapper
+2,27,9,,Substitute
+,,,a,
+,,,b,
+2,27,10,,Replaced Player
+2,27,11,,Player Vacancy
+2,27,12,,Disqualified Player and Ejected Player
+,,,a,
+,,,b,
+2,27,13,,Squad Member
+2,27,14,,Defenseless Player
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+2,27,15,,Player In Bounds and Out Of Bounds
+,,,a,
+,,,b,
+2,28,,,Tripping
+2,29,,,Timing Devices
+2,29,1,,Game Clock
+2,29,2,,Play Clock
+2,30,,,Play Classification
+2,30,1,,Forward Pass Play
+2,30,2,,Free Kick Play
+2,30,3,,Scrimmage Kick Play
+2,30,4,,Running Play and Run
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+2,31,,,Field Areas
+2,31,1,,The Field
+2,31,2,,Field of Play
+2,31,3,,End Zone
+,,,a,
+,,,b,
+,,,c,
+2,31,4,,Playing Surface
+2,31,5,,Playing Enclosure
+2,31,6,,Side Zone
+2,32,,,Fighting
+2,32,1,,
+,,,a,
+,,,b,
+2,33,,,Three-and-One Principle
+2,34,,,Tackle Box
+2,34,1,,
+,,,a,
+,,,b,
+3,,,,"Periods, Time Factors and Substitutions"
+3,1,,,Start of Each Period
+3,1,1,,"Pregame, First and Third Periods"
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+3,1,2,,Second and Fourth Periods
+,,,a,
+,,,b,
+3,1,3,,
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+3,2,,,Playing Time and Intermissions
+3,2,1,,Length of Periods and Intermissions
+,,,a,
+,,,b,
+3,2,2,,Timing Adjustments
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+3,2,3,,Extension of Periods
+,,,a,
+,,,b,
+,,,c,
+3,2,4,,Timing Devices
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+3,2,5,,Minimum Time For A Play After Spiking The Ball
+3,3,,,Timeouts: Starting and Stopping the Clock
+3,3,1,,Timeout
+,,,a,
+,,,b,
+,,,c,
+3,3,2,,Starting and Stopping the Clock
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+3,3,3,,Suspending the Game
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+3,3,4,,Charged Team Timeouts
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+3,3,5,,Injury Timeout
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+3,3,6,,Violation Timeouts
+3,3,7,,Length of Timeouts
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+3,3,8,,Referee’s Notification
+,,,a,
+,,,b,
+,,,c,
+3,3,9,,Helmet Comes Off - Timeout
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+3,4,,,Delays/Clock Tactics
+3,4,1,,Delaying the Start of a Half
+,,,a,
+,,,b,
+3,4,2,,Illegal Delay of Game
+,,,a,
+,,,b,
+3,4,3,,Unfair Clock Tactics
+3,4,4,,10-Second Runoff from Game Clock - Foul
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+3,4,5,,10-Second Runoff Summary
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+3,5,,,Substitutions
+3,5,1,,Substitution Procedures
+3,5,2,,Legal Substitutions
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+3,5,3,,More Than Eleven Players on the Field
+,,,a,
+,,,b,
+4,,,,"Ball in Play, Dead Ball, Out of Bounds"
+4,1,,,Ball in Play - Dead Ball
+4,1,1,,Dead Ball Becomes Alive
+4,1,2,,Live Ball Becomes Dead
+,,,a,
+,,,b,
+,,,c,
+4,1,3,,Ball Declared Dead
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+,,,l,
+,,,m,
+,,,n,
+,,,o,
+,,,p,
+,,,q,
+,,,r,
+4,1,4,,Ball Ready for Play
+4,1,5,,Play-Clock Count
+4,2,,,Out of Bounds
+4,2,1,,Player Out of Bounds
+,,,a,
+,,,b,
+,,,c,
+4,2,2,,Held Ball Out of Bounds
+4,2,3,,Loose Ball Out of Bounds
+,,,a,
+,,,b,
+,,,c,
+4,2,4,,Out of Bounds at Forward Point
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+5,,,,"Series of Downs, Line to Gain"
+5,1,,,"A Series: Started, Broken, Renewed"
+5,1,1,,When to Award Series
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+5,1,2,,Line to Gain
+,,,a,
+,,,b,
+5,1,3,,Forward Progress
+,,,a,
+,,,b,
+,,,c,
+5,1,4,,Continuity of Downs Broken
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+5,,,,"Series of Downs, Line to Gain"
+5,2,,,Down and Possession After a Penalty
+5,2,1,,Foul During Free Kick Down
+5,2,2,,Penalty Resulting in a New Series
+,,,a,
+,,,b,
+5,2,3,,Foul Before a Change of Team Possession
+,,,a,
+,,,b,
+5,2,4,,Foul After a Change of Team Possession
+5,2,5,,Penalty Declined
+5,2,6,,Foul Between Downs
+5,2,7,,Foul Between Series
+,,,a,
+,,,b,
+5,2,8,,Fouls by Both Teams
+5,2,9,,Rule Decisions Final
+6,,,,Kicks
+6,1,,,Free Kicks
+6,1,1,,Restraining Lines
+6,1,2,,Free Kick Formation
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,1,3,,Touching and Recovery of a Free Kick; Illegal Touching
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,1,4,,Forced Touching Disregarded
+,,,a,
+,,,b,
+6,1,5,,Free Kick at Rest
+6,1,6,,Free Kick Caught or Recovered
+,,,a,
+,,,b,
+,,,c,
+6,1,7,,Ball Dead in End Zone
+,,,a,
+,,,b,
+6,1,8,,Fouls by Kicking Team
+6,1,9,,Foul Against Kicker
+6,1,10,,Illegal Wedge Formation
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,1,11,,Player Out Of Bounds
+6,1,12,,Eligibility to Block
+6,2,,,Free Kick Out of Bounds
+6,2,1,,Kicking Team
+6,2,2,,Receiving Team
+6,3,,,Scrimmage Kicks
+6,3,1,,Behind the Neutral Zone
+,,,a,
+,,,b,
+6,3,2,,Beyond the Neutral Zone
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,3,3,,All Become Eligible
+6,3,4,,Forced Touching Disregarded
+,,,a,
+,,,b,
+6,3,5,,Catch or Recovery by Receiving Team
+6,3,6,,Catch or Recovery by Kicking Team
+,,,a,
+,,,b,
+6,3,7,,Out of Bounds Between Goal Lines or at Rest Inbounds
+6,3,8,,Out of Bounds Behind Goal Line
+6,3,9,,Touching Ground On or Behind Goal Line
+6,3,10,,Legal and Illegal Kicks
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+6,3,11,,Loose Behind the Goal Line
+6,3,12,,Out-of-Bounds Player
+6,3,13,,Fouls by Kicking Team
+6,3,14,,Defensive Lineman on Scrimmage Kick Plays
+,,,a,
+,,,b,
+6,4,,,Opportunity to Catch a Kick
+6,4,1,,Interference With Opportunity
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+6,5,,,Fair Catch
+6,5,1,,Dead Where Caught
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+6,5,2,,No Advance
+6,5,3,,Invalid Signals: Catch or Recovery
+,,,a,
+,,,b,
+,,,c ,
+,,,d,
+6,5,4,,Illegal Block or Contact
+6,5,5,,No Tackling
+7,,,,Snapping and Passing the Ball
+7,1,,,The Scrimmage
+7,1,1,,Starting With a Snap
+,,,a,
+,,,b,
+,,,c,
+7,1,2,,Shift and False Start
+,,,a,
+,,,b,
+7,1,3,,Offensive Team Requirements - Prior to the Snap
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+7,1,4,,Offensive Team Requirements - At the Snap
+,,,a,
+,,,b,
+,,,c,
+7,1,5,,Defensive Team Requirements
+,,,a,
+,,,b,
+7,1,6,,Handing the Ball Forward
+,,,a,
+,,,b,
+7,1,7,,Planned Loose Ball
+7,2,,,Backward Pass and Fumble
+7,2,1,,During Live Ball
+7,2,2,,Caught or Recovered
+,,,a,
+,,,b,
+7,2,3,,After the Ball Is Snapped
+7,2,4,,Out of Bounds
+,,,a,
+,,,b,
+,,,c,
+7,2,5,,At Rest
+,,,a,
+,,,b,
+7,3,,,Forward Pass
+7,3,1,,Legal Forward Pass
+7,3,2,,Illegal Forward Pass
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+7,3,3,,Eligibility to Touch Legal Forward Pass
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+7,3,4,,Eligibility Lost by Going Out of Bounds
+7,3,5, ,Eligibility Gained or Regained
+7,3,6,,Complete Pass
+7,3,7,,Incomplete Pass
+,,,a,
+,,,b,
+,,,c,
+7,3,8,,Illegal Contact and Pass Interference
+,,,a,
+,,,b,
+,,,c,
+7,3,9,,Pass Interference: Summary
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+7,3,10,,Ineligible Receiver Downfield
+7,3,11,,Illegal Touching
+7,3,12,,Team B Personal Foul and Unsportsmanlike Conduct During Legal Forward Pass Play
+8,,,,Scoring
+8,1,,,Value of Scores
+8,1,1,,Scoring Plays
+8,1,2,,Forfeited Games
+8,2,,,Touchdown
+8,2,1,,How Scored
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+8,3,,,Try Down
+8,3,1,,How Scored
+8,3,2,,Opportunity to Score
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+8,3,3,,Fouls During a Try Before a Change of Team Possession
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+8,3,4,,Fouls During a Try After a Change of Team Possession
+,,,a,
+,,,b,
+,,,c,
+8,3,5,,Fouls After a Try
+8,3,6,,Next Play
+8,4,,,Field Goal
+8,4,1,,How Scored
+,,,a,
+,,,b,
+8,4,2,,Next Play
+,,,a,
+,,,b,
+8,5,,,Safety
+8,5,1,,How Scored
+,,,a,
+,,,b,
+8,6,,,Touchback
+8,6,1,,When Declared
+,,,a,
+,,,b,
+8,6,2,,Snap After a Touchback
+8,7,,,Responsibility and Impetus
+8,7,1,,Responsibility
+8,7,2,,Initial Impetus
+,,,a,
+,,,b,
+,,,c,
+9,,,,Conduct of Players and Others Subject to the Rules
+9,1,,,Personal Fouls
+9,1,1,,Flagrant Fouls
+9,1,2,,Striking Fouls and Tripping
+,,,a,
+,,,b,
+,,,c,
+9,1,3,,Targeting and Making Forcible Contact With the Crown of the Helmet
+9,1,4,,Targeting and Making Forcible Contact to Head or Neck Area of a Defenseless Player
+9,1,5,,Clipping
+9,1,6,,Blocking Below the Waist
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+9,1,7,,"Late Hit, Action Out of Bounds"
+,,,a,
+,,,b,
+,,,c,
+9,1,8,,Helmet and Facemask Fouls
+,,,a,
+,,,b,
+9,1,9,,Roughing the Passer
+,,,a,
+,,,b,
+9,1,10,,Chop Blocking
+9,1,11,,Leverage and Leaping
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+9,1,12,,Contact Against an Opponent Out of the Play
+,,,a,
+,,,b,
+9,1,13,,Hurdling
+9,1,14,,Contact Against the Snapper
+9,1,15,,Horse-Collar Tackle
+9,1,16,,Roughing or Running Into Kicker or Holder
+,,,a,
+,,,b,
+,,,c,
+9,1,17,,Continued Participation Without Helmet
+9,1,18,,Blind-Side Block
+9,2,,,Unsportsmanlike Conduct Fouls
+9,2,1,,Unsportsmanlike Acts
+,,,a,
+,,,b,
+9,2,2,,Unfair Tactics
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+9,2,3,,Unfair Acts
+,,,a,
+,,,b,
+,,,c,
+9,2,4,,Contacting an Official
+9,2,5,,Game Administration and Sideline Interference
+,,,a,
+,,,b,
+9,2,6,,Ejected Players and Coaches
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+9,2,7,,Use of Tobacco
+9,3,,,"Blocking, Use of Hands or Arms"
+9,3,1,,Who May Block
+9,3,2,,Interfering for or Helping the Ball Carrier or Passer
+,,,a,
+,,,b,
+,,,c,
+9,3,3,,Holding and Use of Hands or Arms: Offense
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+9,3,4,,Holding and Use of Hands or Arms: Defense
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+9,3,5,,Blocking in the Back
+9,4,,,Batting and Kicking
+9,4,1,,Batting a Loose Ball
+,,,a,
+,,,b,
+,,,c,
+9,4,2,,Batting a Backward Pass in Flight
+9,4,3,,Batting Ball in Possession
+9,4,4,,Illegally Kicking Ball
+9,5,,,Fighting
+9,5,1,,
+,,,a,
+,,,b,
+,,,c,
+9,5,2,,
+,,,a,
+,,,b,
+9,5,3,,
+9,6,,,Flagrant Personal Fouls
+9,6,1,,Player Ejection
+9,6,2,,Foul Not Called
+10,,,,Penalty Enforcement
+10,1,,,Penalties Completed
+10,1,1,,How and When Completed
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+10,1,2,,Simultaneous with Snap
+10,1,3,,Live-Ball Fouls by the Same Team
+10,1,4,,Offsetting Fouls
+10,1,5,,Dead-Ball Fouls
+10,1,6,,Live-Ball - Dead-Ball Fouls
+,,,a,
+,,,b,
+10,1,7,,Interval Fouls
+10,2,,,Enforcement Procedures
+10,2,1,,
+,,,a,
+,,,b,
+10,2,2,,Determining the Enforcement Spot and the Basic Spot
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+10,2,3,,Postscrimmage Kick Enforcement
+,,,a,
+,,,b,
+10,2,4,,Fouls by Team A During Kicks
+10,2,5,,"Fouls During or After a Touchdown, Field Goal or Try"
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+10,2,6,,Half-Distance Enforcement Procedures
+11,,,,The Officials: Jurisdiction and Duties
+11,1,,,Jurisdiction
+11,1,1,,
+11,1,2,,
+11,2,,,Responsibilities
+11,2,1,,
+,,,a,
+,,,b,
+11,2,2,,
+12,,,,Instant Replay
+12,1,,,Purpose and Philosophy
+12,1,1,,Purpose
+12,1,2,,Philosophy
+12,2,,,Eligibility for Instant Replay
+12,2,1,,Participation
+,,,a,
+,,,b,
+12,3,,,Reviewable Plays
+12,3,1,,Scoring Plays
+,,,a,
+,,,b,
+12,3,2,,Passes
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+12,3,3,,Dead Ball and Loose Ball
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+,,,I,
+,,,j,
+,,,k,
+12,3,4,,Kicks
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+12,3,5,,Targeting
+,,,a,
+,,,b,
+12,3,6,,Miscellaneous
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+12,3,7,,Limitations on Reviewable Plays
+12,3,8,,Reviewable Fouls
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+,,,f,
+,,,g,
+,,,h,
+12,4,,,"Instant Replay Personnel, Equipment and Location"
+12,4,1,,Personnel
+12,4,2,,Equipment
+,,,a,
+,,,b,
+,,,c,
+12,5,,,Initiating the Replay Process
+12,5,1,,Game Stop
+,,,a,
+,,,b,
+12,5,2,,When to Stop a Game
+,,,a,
+,,,b,
+12,6,,,Reviewing an On-Field Ruling
+12,6,1,,Procedures
+,,,a,
+,,,b,
+,,,c,
+,,,d,
+,,,e,
+12,6,2,,Restrictions
+,,,a,
+,,,b,
+12,7,,,Overturning an On-Field Ruling
+12,7,1,,Criteria for Overturn

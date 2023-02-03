@@ -1,0 +1,9 @@
+<%= form_with url: search_references_path, method: :post do |form| %>
+  <%= form.search_field :reference_search, 
+    value: params[:reference_search], 
+    oninput: "this.form.requestSubmit()", 
+    placeholder: "Search a rule reference...", 
+    class: "form-control" %>
+<% end %>
+
+<div id="search_results"></div>

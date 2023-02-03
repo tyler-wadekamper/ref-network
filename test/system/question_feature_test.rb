@@ -6,15 +6,6 @@ require "application_system_test_case"
 class QuestionFeatureTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
 
-  def create_questions(number, author: nil)
-    @user = create_default_user unless author
-    number.times do
-      answer = build(:random_answer)
-      create(:random_question, author: @user, answer:) unless author
-      create(:random_question, author:, answer:) if author
-    end
-  end
-
   def assert_answer_content(answer)
     click_on "Show Answer"
     assert_selector "div.answer", text: answer.text
@@ -22,7 +13,15 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     assert_selector "button.answer-button", text: "Hide Answer"
   end
 
-  def fill_in_question(valid: true)
+  def assert_references_content(question)
+    click_on "Show Rule References"
+    question.references.each do |reference|
+      assert_selector 'a', text: /.*#{reference.name}/ if reference.name
+      assert_selector 'span', text: reference.text
+    end
+  end
+
+  def fill_in_question(valid: true, edit: false)
     fake_body = Faker::Lorem.paragraph
 
     body_content = fake_body if valid
@@ -31,6 +30,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     fill_in "question[body]", with: body_content
 
     select_valid_answer_fields
+    select_random_reference_fields unless edit
 
     fill_in "question[answer_attributes][explanation]", with: Faker::Lorem.paragraph
     body_content
@@ -45,6 +45,16 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     select VALID_CLOCK_STATUS.sample, from: "question[answer_attributes][clock_status]"
   end
 
+  def select_random_reference_fields(count: 5)
+    find('div.ss-main').click
+    Reference.all.sample(count).each do |reference|
+      fill_in "Search", with: reference.text
+      find('div.ss-option', text: reference.label).click
+    end
+
+    find('span.ss-cross').click if has_css?('span.ss-cross')
+  end
+
   def assert_question_content(question, body_content)
     answer = question.answer
 
@@ -52,6 +62,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       assert_selector "div.author-name", { count: 1, text: "#{@user2.first_name} #{@user2.last_name}" }
       assert_selector "div.body", { count: 1, text: body_content }
       assert_answer_content(answer)
+      assert_references_content(question)
     end
   end
 
@@ -74,34 +85,21 @@ class QuestionFeatureTest < ApplicationSystemTestCase
 
   class QuestionListTest < QuestionFeatureTest
     setup do
+      create_sample_references('6')
       create_questions(50)
     end
 
-    def scroll_down
-      page.execute_script "window.scrollBy(0,10000)"
-    end
 
-    def assert_questions(number)
-      assert_selector "turbo-frame.question", count: number
-    end
 
     test "shows the list of questions on scroll" do
       visit questions_url
-      assert_questions(15)
-
-      scroll_down
-      assert_questions(30)
-
-      scroll_down
-      assert_questions(45)
-
-      scroll_down
-      assert_questions(50)
+      assert_scroll_functionality
     end
   end
 
-  class AnswerButtonTest < QuestionFeatureTest
+  class AnswerReferenceButtonTest < QuestionFeatureTest
     setup do
+      create_sample_references('6')
       create_questions(20)
     end
 
@@ -114,10 +112,20 @@ class QuestionFeatureTest < ApplicationSystemTestCase
         end
       end
     end
+
+    test "shows the reference for the first three questions" do
+      visit questions_url
+      Question.limit(3).order(created_at: :desc).each do |question|
+        within "turbo-frame#question_#{question.id}" do
+          assert_references_content(question)
+        end
+      end
+    end
   end
 
   class AddQuestionTest < QuestionFeatureTest
     setup do
+      create_sample_references('6')
       create_questions(20)
       @user2 = create_random_user
       sign_in @user2
@@ -155,6 +163,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
 
   class EditQuestionTest < QuestionFeatureTest
     setup do
+      create_sample_references('6')
       create_questions(20)
       @user2 = create_random_user
       sign_in @user2
@@ -163,9 +172,7 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       click_on "Edit"
     end
     class SuccessfulEditTest < EditQuestionTest
-      test "updates the question" do
-        body_content = fill_in_question(valid: true)
-
+      def update_and_check_question(body_content)
         click_on "Update Question"
 
         sleep(0.5)
@@ -173,11 +180,28 @@ class QuestionFeatureTest < ApplicationSystemTestCase
         question = Question.order("updated_at").last
         assert_question_content(question, body_content)
       end
+
+      test "updates the question" do
+        body_content = fill_in_question(valid: true, edit: true)
+        update_and_check_question(body_content)
+      end
+
+      test "adds a reference to the question" do
+        body_content = fill_in_question(valid: true, edit: true)
+        select_random_reference_fields(count: 1)
+        update_and_check_question(body_content)
+      end
+
+      test "removes a reference from the question" do
+        body_content = fill_in_question(valid: true, edit: true)
+        first('span.ss-value-delete').click
+        update_and_check_question(body_content)
+      end
     end
 
     class UnsuccessfulEditTest < EditQuestionTest
       test "does not update the question" do
-        fill_in_question(valid: false)
+        fill_in_question(valid: false, edit: true)
 
         click_on "Update Question"
 

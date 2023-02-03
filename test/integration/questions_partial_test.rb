@@ -101,4 +101,28 @@ class QuestionsPartialTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  class ReferenceTest < QuestionsPartialTest
+    setup do
+      user = create_default_user
+      answer = build(:answer)
+
+      create_sample_references('6')
+      @references = Reference.first(5)
+
+      create(:question, author: user, answer:, reference_ids: @references.map(&:id))
+
+      get questions_url(Question.first.id)
+    end
+
+    test "shows the rule references with links" do
+      @references.each do |reference|
+        assert_select "div.references-container" do
+          assert_select 'a', /.*#{reference.name}/ if reference.name
+          assert_select 'span', reference.text
+          assert_select 'a[href=?]', "/references/#{reference.id}"
+        end
+      end
+    end
+  end
 end

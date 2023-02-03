@@ -1,0 +1,14 @@
+<% references.each do |reference| %>
+  <%= link_to reference, class: "list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-start", id: "reference_link_#{reference.id}" do %>
+    <% spacing = "&ensp;" * reference.length  %>
+    <div>
+      <span class="fw-bold">
+        <%= highlight(spacing + reference.text, params.dig(:reference_search)) %>
+      </span>
+      <%= highlight(" - #{reference.name}", params.dig(:reference_search)) if reference.name %>
+    </div>
+    <span class="badge bg-primary rounded-pill">
+      <%= reference.child_questions.count %>
+    </span>
+  <% end %>
+<% end %>

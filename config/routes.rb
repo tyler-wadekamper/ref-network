@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :questions, only: [:edit, :new, :create, :index, :update]
   resources :answers, only: [:edit, :new, :create, :update]
 
+  resources :references, only: [:show] do
+    collection do
+      post :search
+    end
+  end
+
   # Defines the root path route ("/")
   root "questions#index"
 end
