@@ -18,7 +18,10 @@
 
             <div class="col-6 d-flex justify-content-end">
               <% if question.author == current_user %>
-                <%= link_to 'Edit', edit_question_path(question.id), class: "card-link text-decoration-none align-self-center" %>
+                <%= link_to 'Edit', edit_question_path(question.id), class: "card-link text-decoration-none align-self-center mx-3" %>
+                <%= link_to 'Delete', question_path(question.id),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this question? This action is permanent." },
+                  class: "card-link text-decoration-none align-self-center" %>
               <% end %>
             </div>
 

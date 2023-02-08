@@ -79,7 +79,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
     get edit_question_url(Question.first.id)
 
     assert_redirected_to root_path
-    assert_equal 'You must be the author of a question to edit.', flash[:alert]
+    assert_equal 'You must be the author of a question to edit or delete.', flash[:alert]
   end
 
   test "update action is successful when signed in" do
@@ -119,7 +119,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
     patch question_url(Question.first.id), params: VALID_UPDATE_PARAMS
 
     assert_redirected_to root_path
-    assert_equal 'You must be the author of a question to edit.', flash[:alert]
+    assert_equal 'You must be the author of a question to edit or delete.', flash[:alert]
   end
 
   test "update action with invalid params is not successful" do
@@ -131,5 +131,52 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
     assert_template :edit
+  end
+
+  test "delete action is successful when the author" do
+    user = create_default_user
+
+    sign_in user
+    post questions_url, params: VALID_QUESTION_PARAMS
+
+    assert_difference('Question.count', -1) do
+      delete question_url(Question.last.id)
+    end
+
+    assert_redirected_to questions_path
+    assert_equal 'Question deleted successfully.', flash[:notice]
+  end
+
+  test "delete action is not successful when not the author" do
+    user_one = create_default_user
+    user_two = create_random_user
+
+    sign_in user_one
+    post questions_url, params: VALID_QUESTION_PARAMS
+    sign_out user_one
+
+    sign_in user_two
+
+    assert_no_difference('Question.count') do
+      delete question_url(Question.last.id)
+    end
+
+    assert_redirected_to root_path
+    assert_equal 'You must be the author of a question to edit or delete.', flash[:alert]
+  end
+
+  test "delete action is not successful when not signed in" do
+    user = create_default_user
+
+    sign_in user
+    post questions_url, params: VALID_QUESTION_PARAMS
+    sign_out user
+
+    assert_no_difference('Question.count') do
+      delete question_url(Question.last.id)
+    end
+
+    assert_redirected_to new_user_session_path
+    assert_equal 'You must be signed in to continue.', flash[:alert]
   end
 end

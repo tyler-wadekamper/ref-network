@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :authenticate_author, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_author, only: [:edit, :update, :destroy]
 
   def index
     @pagy, @questions = pagy_countless(Question.order(created_at: :desc), items: 15, cycle: false)
@@ -37,6 +37,13 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+
+    redirect_to questions_url, notice: 'Question deleted successfully.'
+  end
+
   private
 
   def question_params
@@ -46,7 +53,7 @@ class QuestionsController < ApplicationController
 
   def authenticate_author
     unless Question.find(params[:id]).author == current_user
-      flash[:alert] = 'You must be the author of a question to edit.'
+      flash[:alert] = 'You must be the author of a question to edit or delete.'
       redirect_to root_path
     end
   end
