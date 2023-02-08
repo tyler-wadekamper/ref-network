@@ -218,4 +218,27 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       end
     end
   end
+
+  class DeleteQuestionTest < QuestionFeatureTest
+    test "deletes the question authored by user" do
+      create_sample_references('6')
+      create_questions(20)
+
+      @user2 = create_random_user
+      sign_in @user2
+
+      create_questions(1, author: @user2)
+      body = Question.last.body
+
+      visit questions_url
+      accept_confirm do
+        click_on "Delete"
+      end
+
+      sleep(0.5)
+
+      assert_equal Question.all.count, 20
+      assert_selector "div.body", { count: 0, text: body }
+    end
+  end
 end

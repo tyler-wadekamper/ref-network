@@ -64,6 +64,12 @@ class QuestionsPartialTest < ActionDispatch::IntegrationTest
         assert_select "a", { count: 0, text: "Edit" }
       end
     end
+
+    test "does not show the delete button" do
+      assert_select "turbo-frame.question" do
+        assert_select "a", { count: 0, text: "Delete" }
+      end
+    end
   end
 
   class AuthenticatedTest < QuestionsPartialTest
@@ -78,6 +84,12 @@ class QuestionsPartialTest < ActionDispatch::IntegrationTest
     test "shows the edit button" do
       assert_select "turbo-frame.question" do
         assert_select "a", { count: 1, text: "Edit" }
+      end
+    end
+
+    test "shows the delete button" do
+      assert_select "turbo-frame.question" do
+        assert_select "a", { count: 1, text: "Delete" }
       end
     end
   end
@@ -98,6 +110,12 @@ class QuestionsPartialTest < ActionDispatch::IntegrationTest
     test "does not show the edit button" do
       assert_select "turbo-frame.question" do
         assert_select "a", { count: 0, text: "Edit" }
+      end
+    end
+
+    test "does not show the delete button" do
+      assert_select "turbo-frame.question" do
+        assert_select "a", { count: 0, text: "Delete" }
       end
     end
   end
