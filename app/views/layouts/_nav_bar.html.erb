@@ -7,9 +7,12 @@
       </li>
     </ul>
     <% if user_signed_in? %>
-      <ul class="d-flex justify-content-end navbar-nav mb-0">
-        <li class="nav-item text-white">
-          Logged in as <%= current_user.first_name %> <%= current_user.last_name %>
+      <ul class="d-flex justify-content-end nav mb-0">
+        <li class="nav-item px-2">
+          <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-light' %>
+        </li>
+        <li class="nav-item px-2 text-white align-self-center">
+          <%= current_user.first_name %> <%= current_user.last_name %>
         </li>
       </ul>
     <% else %>

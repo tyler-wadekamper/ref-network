@@ -28,7 +28,7 @@ class UserFeatureTest < ApplicationSystemTestCase
         user = fill_in_new_user_fields(valid: true)
 
         assert_selector "div.alert-success", text: "Welcome! You have signed up successfully."
-        assert_selector ".nav-item", text: "Logged in as #{user.first_name} #{user.last_name}"
+        assert_selector ".nav-item", text: "#{user.first_name} #{user.last_name}"
       end
     end
 
@@ -44,34 +44,46 @@ class UserFeatureTest < ApplicationSystemTestCase
     end
   end
   
-  class SignInTest < UserFeatureTest
+  class SessionTest < UserFeatureTest
     setup do
       @user = create_default_user
-      visit new_user_session_url
     end
 
     def fill_in_sign_in_fields(valid: true)
+      visit new_user_session_url
       fill_in "Email", with: @user.email
       fill_in "Password", with: "UserOnePass" if valid
       fill_in "Password", with: "InvalidPassword" unless valid
       click_on "commit"
     end
-    class SuccessfulSignInTest < SignInTest
+    class SuccessfulSignInTest < SessionTest
       test "signs in successfully" do
         fill_in_sign_in_fields(valid: true)
 
-        assert_selector "div.alert-success", text: "Signed in successfully."
-        assert_selector "li", text: "Logged in as #{@user.first_name} #{@user.last_name}"
+        assert_selector "div.alert-success", text: "Logged in successfully."
+        assert_selector "li", text: "#{@user.first_name} #{@user.last_name}"
       end
     end
 
-    class UnsuccessfulSignInTest < SignInTest
+    class UnsuccessfulSignInTest < SessionTest
       test "does not sign in" do
         fill_in_sign_in_fields(valid: false)
 
         assert_selector "div.alert-danger", text: "Invalid Email or password."
         assert_selector "input#user_email"
         assert_selector "input#user_password"
+      end
+    end
+
+    class SignOutTest < SessionTest
+      test "signs user out successfully" do
+        sign_in @user
+        visit questions_url
+
+        click_on "Log out"
+
+        assert_selector "div.alert-success", text: "Logged out successfully."
+        assert_selector "li", { count: 0, text: "#{@user.first_name} #{@user.last_name}" }
       end
     end
   end
