@@ -7,6 +7,9 @@ class Question < ApplicationRecord
   has_many :question_references
   has_many :references, through: :question_references
 
+  has_many :question_viewers, foreign_key: :viewed_question_id
+  has_many :viewers, through: :question_viewers, class_name: 'User'
+
   accepts_nested_attributes_for :answer
 
   def references_by_rule_order

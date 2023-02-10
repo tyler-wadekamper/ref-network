@@ -4,6 +4,9 @@ class User < ApplicationRecord
 
   has_many :questions, foreign_key: :author_id, class_name: 'Question'
 
+  has_many :question_viewers, foreign_key: :viewer_id
+  has_many :viewed_questions, through: :question_viewers, class_name: 'Question'
+
   validates_presence_of :first_name, :last_name, :email
 
   before_save do
