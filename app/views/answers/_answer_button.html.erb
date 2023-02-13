@@ -1,1 +1,6 @@
-<button data-action="visibility#toggleAnswerVisibility visibility#toggleAnswerButton" data-visibility-target="button" data-bs-toggle="button" class="btn btn-outline-primary shadow-none answer-button">Show Answer</button>
+<%= button_to "Show Answer", question_viewers_path, method: :post,
+  params: { viewer_id: current_user, viewed_question_id: question },
+  # "data-action" => "visibility#toggleAnswerVisibility visibility#toggleAnswerButton",
+  # "data-visibility-target" => "button",
+  # "data-bs-toggle" => "button",
+  class: "btn btn-outline-primary shadow-none answer-button" %>
