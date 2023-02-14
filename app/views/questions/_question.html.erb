@@ -16,6 +16,14 @@
               </div>
             </div>
 
+            <div class="col-6">
+              <% if current_user.viewed_questions.include?(question) %>
+                <%= render 'question_viewers/question_viewer' %>
+              <% else %>
+                <%= render 'question_viewers/question_viewer_placeholder' %>
+              <% end %>
+            </div>
+
             <div class="col-6 d-flex justify-content-end">
               <% if question.author == current_user %>
                 <%= link_to 'Edit', edit_question_path(question.id), class: "card-link text-decoration-none align-self-center mx-3" %>
@@ -32,7 +40,9 @@
             <%= question.body %>
         </div>
 
-        <div class="answer-references-button-container" data-controller="visibility">
+        <div class="answer-references-button-container" data-controller="visibility" 
+             data-visibility-viewer-value="<%= current_user.id %>"
+             data-visibility-viewed-value="<%= question.id %>">
           <%= render 'answers/answer_button', question: %>
           <%= render 'references/references_button' %>
           <%= render question.answer %>

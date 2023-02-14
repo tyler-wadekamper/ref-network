@@ -8,7 +8,7 @@ class QuestionViewersController < ApplicationController
   private
 
   def question_viewer_params
-    params.permit(:authenticity_token, :viewer_id, :viewed_question_id, :commit)
+    params.require(:question_viewer).permit(:authenticity_token, :viewer_id, :viewed_question_id, :commit)
   end
 
   def already_exists
