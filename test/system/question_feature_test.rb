@@ -89,8 +89,6 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       create_questions(50)
     end
 
-
-
     test "shows the list of questions on scroll" do
       visit questions_url
       assert_scroll_functionality
