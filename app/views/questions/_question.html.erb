@@ -40,9 +40,9 @@
             <%= question.body %>
         </div>
 
-        <div class="answer-references-button-container" data-controller="visibility" 
-             data-visibility-viewer-value="<%= current_user.id %>"
-             data-visibility-viewed-value="<%= question.id %>">
+        <div class="answer-references-button-container" data-controller="visibility request" 
+             data-request-viewer-value="<%= current_user.id %>"
+             data-request-viewed-value="<%= question.id %>">
           <%= render 'answers/answer_button', question: %>
           <%= render 'references/references_button' %>
           <%= render question.answer %>
