@@ -2,7 +2,12 @@
 # yarn lockfile v1
 
 
-slim-select@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/slim-select/-/slim-select-2.4.1.tgz#2a412612d41db4bcd836286d9c05a99f2f4f9310"
-  integrity sha512-J1hdKraLF5VM6abPOn9SdfSacfjjzsfYVAHDeewZTYEOy6R2/PsG/NGUkre5nsAw8yywNLCQ23/GsyRx5unyWg==
+"bootstrap-icons@^1.10.3":
+  "integrity" "sha512-7Qvj0j0idEm/DdX9Q0CpxAnJYqBCFCiUI6qzSPYfERMcokVuV9Mdm/AJiVZI8+Gawe4h/l6zFcOzvV7oXCZArw=="
+  "resolved" "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.10.3.tgz"
+  "version" "1.10.3"
+
+"slim-select@^2.4.1":
+  "integrity" "sha512-J1hdKraLF5VM6abPOn9SdfSacfjjzsfYVAHDeewZTYEOy6R2/PsG/NGUkre5nsAw8yywNLCQ23/GsyRx5unyWg=="
+  "resolved" "https://registry.npmjs.org/slim-select/-/slim-select-2.4.1.tgz"
+  "version" "2.4.1"
