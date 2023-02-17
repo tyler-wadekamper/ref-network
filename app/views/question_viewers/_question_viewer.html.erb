@@ -1,3 +1,9 @@
-<div>
-  Viewed question
-</div>
+<% if current_user.viewed_questions.include?(question) %>
+  <div>
+    Viewed question
+  </div>
+<% else %>
+  <div data-viewer-target="viewer">
+    New question
+  </div>
+<% end %>

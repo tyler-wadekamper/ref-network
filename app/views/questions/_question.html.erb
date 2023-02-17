@@ -1,58 +1,52 @@
-  <div class="card my-4 text-dark bg-light shadow-sm">
-    <div class="card-body question-card">
-      <turbo-frame id="<%= dom_id question %>" class="question">
-        <div class="container-fluid p-0">
-          <div class="row">
-            <div class="col-6">
-              <div class='card-title mb-0 h5 author-name'>
-                <%= question.author.first_name %> <%= question.author.last_name %>
-              </div>
-              <div class='card-subtitle text-muted time-elapsed'>
-                <% if question.created_at == question.updated_at %>
-                  Posted <%= time_ago_in_words(question.created_at) %> ago
-                <% else %>
-                  Edited <%= time_ago_in_words(question.updated_at) %> ago
-                <% end %>
-              </div>
+<div class="card my-4 text-dark bg-light shadow-sm">
+  <div class="card-body question-card">
+    <turbo-frame id="<%= dom_id question %>" class="question" data-controller="viewer">
+      <div class="container-fluid p-0">
+        <div class="row">
+          <div class="col-6">
+            <div class='card-title mb-0 h5 author-name'>
+              <%= question.author.first_name %> <%= question.author.last_name %>
             </div>
-
-            <div class="col-6">
-              <% if user_signed_in? %>
-                <% if current_user.viewed_questions.include?(question) %>
-                  <%= render 'question_viewers/question_viewer' %>
-                <% else %>
-                  <%= render 'question_viewers/question_viewer_placeholder' %>
-                <% end %>
+            <div class='card-subtitle text-muted time-elapsed'>
+              <% if question.created_at == question.updated_at %>
+                Posted <%= time_ago_in_words(question.created_at) %> ago
+              <% else %>
+                Edited <%= time_ago_in_words(question.updated_at) %> ago
               <% end %>
             </div>
+          </div>
 
-            <div class="col-6 d-flex justify-content-end">
-              <% if question.author == current_user %>
-                <%= link_to 'Edit', edit_question_path(question.id), class: "card-link text-decoration-none align-self-center mx-3" %>
-                <%= link_to 'Delete', question_path(question.id),
-                  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this question? This action is permanent." },
-                  class: "card-link text-decoration-none align-self-center" %>
-              <% end %>
-            </div>
+          <div class="col-6">
+            <% if user_signed_in? %>
+              <div id="question_<%= question.id %>_viewer">
+                <%= render 'question_viewers/question_viewer', question: %>
+              </div>
+            <% end %>
+          </div>
 
+          <div class="col-6 d-flex justify-content-end">
+            <% if question.author == current_user %>
+              <%= link_to 'Edit', edit_question_path(question.id), class: "card-link text-decoration-none align-self-center mx-3" %>
+              <%= link_to 'Delete', question_path(question.id),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this question? This action is permanent." },
+                class: "card-link text-decoration-none align-self-center" %>
+            <% end %>
           </div>
         </div>
+      </div>
+      <div class="card-text my-2 body">
+          <%= question.body %>
+      </div>
 
-        <div class="card-text my-2 body">
-            <%= question.body %>
-        </div>
-
-        <div class="answer-references-button-container" data-controller="visibility request"
-          <% if user_signed_in? %>
-             data-request-viewer-value="<%= current_user.id %>"
-             data-request-viewed-value="<%= question.id %>"
-          <% end %> >
-          <%= render 'answers/answer_button', question: %>
-          <%= render 'references/references_button' %>
-          <%= render question.answer %>
-          <%= render 'references/question_references_list', references: question.references_by_rule_order %>
-        </div>
-      </turbo-frame>
-    </div>
+      <div class="answer-references-button-container" data-controller="visibility request"
+        <% if user_signed_in? %>
+            data-request-viewed-value="<%= question.id %>"
+        <% end %> >
+        <%= render 'answers/answer_button', question: %>
+        <%= render 'references/references_button' %>
+        <%= render question.answer %>
+        <%= render 'references/question_references_list', references: question.references_by_rule_order %>
+      </div>
+    </turbo-frame>
   </div>
-
+</div>
