@@ -7,7 +7,8 @@ export default class extends Controller {
     this.viewerTargets.forEach((el) => {
       console.log(el.textContent);
       if (el.textContent.includes("New question")) {
-        el.textContent = "Viewed question";
+        el.innerHTML = "<i class='bi bi-check-lg'></i> Viewed question";
+        el.classList.add("text-secondary");
       }
     });
   }
