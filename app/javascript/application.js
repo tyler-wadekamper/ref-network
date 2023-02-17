@@ -2,3 +2,4 @@
 import "@hotwired/turbo-rails";
 import "controllers";
 import "bootstrap";
+import "app/node_modules/bootstrap-icons/font/bootstrap-icons.css";
