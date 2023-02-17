@@ -1,9 +1,9 @@
 <% if current_user.viewed_questions.include?(question) %>
-  <div class="text-primary">
-    Viewed question
+  <div class="text-secondary">
+    <i class="bi bi-check-lg"></i> Viewed question
   </div>
 <% else %>
-  <div data-viewer-target="viewer">
-    New question
+  <div class="text-primary" data-viewer-target="viewer">
+    <i class="bi bi-exclamation-lg"></i>New question
   </div>
 <% end %>
