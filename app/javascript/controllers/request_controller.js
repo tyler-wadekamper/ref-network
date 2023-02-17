@@ -8,7 +8,6 @@ export default class extends Controller {
 
   async postQuestionViewer(event) {
     event.preventDefault();
-    const currentUserId = this.viewerValue;
     const questionId = this.viewedValue;
 
     const authenticityToken = document.querySelector(
@@ -23,7 +22,6 @@ export default class extends Controller {
       },
       body: JSON.stringify({
         question_viewer: {
-          viewer_id: currentUserId,
           viewed_question_id: questionId,
         },
       }),
