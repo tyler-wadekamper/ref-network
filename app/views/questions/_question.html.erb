@@ -1,9 +1,9 @@
   <div class="card my-4 text-dark bg-light shadow-sm">
     <div class="card-body question-card">
-      <turbo-frame id="<%= dom_id question %>" class="question" data-controller="viewer">
+      <turbo-frame id="<%= dom_id question %>" class="question">
         <div class="container-fluid p-0">
           <div class="row">
-            <div class="col-4">
+            <div class="col-6">
               <div class='card-title mb-0 h5 author-name'>
                 <%= question.author.first_name %> <%= question.author.last_name %>
               </div>
@@ -16,15 +16,17 @@
               </div>
             </div>
 
-            <% if user_signed_in? && !current_user.questions.include?(question) %>
-              <div class="col-8">
-                <div id="question_<%= question.id %>_viewer">
-                  <%= render 'question_viewers/question_viewer', question: %>
-                </div>
-              </div>
-            <% end %>
+            <div class="col-6">
+              <% if user_signed_in? %>
+                <% if current_user.viewed_questions.include?(question) %>
+                  <%= render 'question_viewers/question_viewer' %>
+                <% else %>
+                  <%= render 'question_viewers/question_viewer_placeholder' %>
+                <% end %>
+              <% end %>
+            </div>
 
-            <div class="col-8 d-flex justify-content-end">
+            <div class="col-6 d-flex justify-content-end">
               <% if question.author == current_user %>
                 <%= link_to 'Edit', edit_question_path(question.id), class: "card-link text-decoration-none align-self-center mx-3" %>
                 <%= link_to 'Delete', question_path(question.id),
@@ -42,6 +44,7 @@
 
         <div class="answer-references-button-container" data-controller="visibility request"
           <% if user_signed_in? %>
+             data-request-viewer-value="<%= current_user.id %>"
              data-request-viewed-value="<%= question.id %>"
           <% end %> >
           <%= render 'answers/answer_button', question: %>

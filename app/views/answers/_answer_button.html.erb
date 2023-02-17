@@ -1,4 +1,4 @@
-<button data-action="visibility#toggleAnswerVisibility visibility#toggleAnswerButton viewer#toggleViewer<%= " request#postQuestionViewer" if user_signed_in? && !current_user.viewed_questions.include?(question) %>" 
+<button data-action="visibility#toggleAnswerVisibility visibility#toggleAnswerButton<%= " request#postQuestionViewer" if user_signed_in? && !current_user.viewed_questions.include?(question) %>" 
   data-visibility-target="button" 
   data-bs-toggle="button"
   class="btn btn-outline-primary shadow-none answer-button">Show Answer</button>
