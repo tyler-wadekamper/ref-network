@@ -1,6 +1,4 @@
 class QuestionViewersController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
-
   def create
     @viewed_question = Question.find(question_viewer_params[:viewed_question_id])
     head :bad_request and return if already_exists
