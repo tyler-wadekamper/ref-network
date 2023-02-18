@@ -12,3 +12,6 @@ eagerLoadControllersFrom("controllers", application);
 
 import VisibilityController from "controllers/visibility_controller";
 application.register("visibility", VisibilityController);
+
+import RequestController from "controllers/request_controller";
+application.register("request", RequestController);
