@@ -7,6 +7,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script>
+      const process = {}
+      process.env = {}
+      process.env.NODE_ENV = "<%= Rails.env %>"
+    </script>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.css", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>

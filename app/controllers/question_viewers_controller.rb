@@ -18,6 +18,6 @@ class QuestionViewersController < ApplicationController
   end
 
   def already_exists
-    current_user.viewed_questions.include?(@viewed_question)
+    current_user.viewed?(@viewed_question)
   end
 end

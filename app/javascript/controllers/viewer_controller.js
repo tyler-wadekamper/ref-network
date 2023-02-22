@@ -6,8 +6,8 @@ export default class extends Controller {
   toggleViewer() {
     this.viewerTargets.forEach((el) => {
       console.log(el.textContent);
-      if (el.textContent.includes("New question")) {
-        el.innerHTML = "<i class='bi bi-check-lg'></i> Viewed question";
+      if (el.textContent.includes("Unread question")) {
+        el.innerHTML = "<i class='bi bi-check-lg'></i> Read question";
         el.classList.add("text-secondary");
       }
     });

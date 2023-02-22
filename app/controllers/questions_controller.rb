@@ -3,7 +3,8 @@ class QuestionsController < ApplicationController
   before_action :authenticate_author, only: [:edit, :update, :destroy]
 
   def index
-    @pagy, @questions = pagy_countless(Question.order(created_at: :desc), items: 15, cycle: false)
+    questions = sorted_filtered_questions(sort_filter_params)
+    @pagy, @questions = pagy_countless(questions, items: 15, cycle: false)
 
     render "scrollable_list" if params[:page]
   end
@@ -51,10 +52,38 @@ class QuestionsController < ApplicationController
                                      answer_attributes: %i[team down distance yardline_num yardline_team clock_status explanation id])
   end
 
+  def sort_filter_params
+    params.permit(:sort_by, :filter_by)
+  end
+
   def authenticate_author
     unless Question.find(params[:id]).author == current_user
       flash[:alert] = 'You must be the author of a question to edit or delete.'
       redirect_to root_path
     end
+  end
+
+  def sorted_filtered_questions(sort_filter_params)
+    filter_by = sort_filter_params[:filter_by]
+    return filtered_questions(filter_by) if filter_by
+
+    sort_by = sort_filter_params[:sort_by]
+    return sorted_questions(sort_by) if sort_by
+
+    Question.order(created_at: :desc)
+  end
+
+  def filtered_questions(filter_by)
+    viewed_questions = Question.joins(:question_viewers).where(question_viewers: { viewer_id: current_user.id })
+
+    questions = viewed_questions if filter_by == "read"
+    questions = Question.all.excluding(viewed_questions) if filter_by == "unread"
+
+    questions.order(created_at: :desc)
+  end
+
+  def sorted_questions(sort_by)
+    return Question.order(created_at: :desc) if sort_by == "newest"
+    return Question.order(created_at: :asc) if sort_by == "oldest"
   end
 end

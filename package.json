@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "bootstrap-icons": "^1.10.3",
     "slim-select": "^2.4.1"
   }

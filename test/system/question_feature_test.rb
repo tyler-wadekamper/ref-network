@@ -128,11 +128,11 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       @user2 = create_random_user
       sign_in @user2
       visit questions_url
-      click_on "New Question"
+      click_on "New question"
     end
 
     class SuccessfulAddTest < AddQuestionTest
-      test "creates a new question" do
+      test "creates a New question" do
         body_content = fill_in_question(valid: true)
 
         click_on "Create Question"
