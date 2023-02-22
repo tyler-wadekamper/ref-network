@@ -13,6 +13,10 @@ class User < ApplicationRecord
     capitalize_names
   end
 
+  def viewed?(question)
+    viewed_questions.include?(question)
+  end
+
   private
 
   def capitalize_names

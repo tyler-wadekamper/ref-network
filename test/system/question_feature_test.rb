@@ -95,6 +95,89 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     end
   end
 
+  class QuestionIndexSortFilterTest < QuestionFeatureTest
+    setup do
+      ActionController::Base.allow_forgery_protection = true
+      create_questions(10)
+      @user2 = create_random_user
+      sign_in @user2
+      visit questions_url
+    end
+  
+    teardown do
+      ActionController::Base.allow_forgery_protection = false
+    end
+
+    test "sort by newest shows new questions first" do
+      click_on "Sort and Filter"
+      click_on "Newest"
+      sleep(1)
+
+      question_elements = all("turbo-frame.question")
+
+      previous_id = nil
+      question_elements.each do |element|
+        element_id = element[:id].split('_')[1].to_i
+
+        assert element_id < previous_id if previous_id
+
+        previous_id = element_id
+      end
+    end
+
+    test "sort by oldest shows old questions first" do
+      click_on "Sort and Filter"
+      click_on "Oldest"
+      sleep(1)
+
+      question_elements = all("turbo-frame.question")
+
+      previous_id = nil
+      question_elements.each do |element|
+        element_id = element[:id].split('_')[1].to_i
+
+        assert element_id > previous_id if previous_id
+
+        previous_id = element_id
+      end
+    end
+
+    test "filter by read only shows questions that are read" do
+      question_elements = all("button.answer-button").take(3)
+
+      question_elements.each do |element|
+        element.click
+      end
+
+      sleep(1)
+
+      click_on "Sort and Filter"
+      click_on "Read"
+      sleep(1)
+
+      question_elements = all("turbo-frame.question")
+
+      assert question_elements.count == 3
+    end
+
+    test "filter by unread only shows questions that are not read" do
+      question_elements = all("button.answer-button").take(3)
+
+      question_elements.each do |element|
+        element.click
+      end
+
+      sleep(1)
+
+      click_on "Sort and Filter"
+      click_on "Unread"
+      sleep(1)
+
+      question_elements = all("turbo-frame.question")
+
+      assert question_elements.count == 7
+    end
+  end
   class AnswerReferenceButtonTest < QuestionFeatureTest
     setup do
       create_sample_references('6')
@@ -128,11 +211,11 @@ class QuestionFeatureTest < ApplicationSystemTestCase
       @user2 = create_random_user
       sign_in @user2
       visit questions_url
-      click_on "New Question"
+      click_on "New question"
     end
 
     class SuccessfulAddTest < AddQuestionTest
-      test "creates a new question" do
+      test "creates a New question" do
         body_content = fill_in_question(valid: true)
 
         click_on "Create Question"
@@ -240,3 +323,4 @@ class QuestionFeatureTest < ApplicationSystemTestCase
     end
   end
 end
+

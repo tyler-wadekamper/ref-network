@@ -17,7 +17,7 @@ class QuestionsIndexTest < ActionDispatch::IntegrationTest
     end
 
     test "shows the new question button" do
-      assert_select "button", "New Question"
+      assert_select "button", "New question"
     end
 
     test "shows the log in and sign up buttons" do

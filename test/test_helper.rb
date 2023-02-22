@@ -91,7 +91,7 @@ module QuestionContent
 end
 
 module ParamsDefinitions
-  VALID_QUESTION_PARAMS = { question: { body: "new question",
+  VALID_QUESTION_PARAMS = { question: { body: "Unread question",
                                         answer_attributes: { team: "A", 
                                                              down: "1", 
                                                              distance: "10", 
