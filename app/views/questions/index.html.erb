@@ -15,8 +15,10 @@
           Sort and Filter
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><%= link_to "Read", questions_path(filter_by: 'read'), class: "dropdown-item" %></li>
-          <li><%= link_to "Unread", questions_path(filter_by: 'unread'), class: "dropdown-item" %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Read", questions_path(filter_by: 'read'), class: "dropdown-item" %></li>
+            <li><%= link_to "Unread", questions_path(filter_by: 'unread'), class: "dropdown-item" %></li>
+          <% end %>
           <li><%= link_to "Newest", questions_path(sort_by: 'newest'), class: "dropdown-item" %></li>
           <li><%= link_to "Oldest", questions_path(sort_by: 'oldest'), class: "dropdown-item" %></li>
         </ul>
