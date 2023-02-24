@@ -35,12 +35,8 @@ class QuestionsIndexTest < ActionDispatch::IntegrationTest
 
     test "shows the user's name" do
       assert_select "nav" do
-        assert_select "li", "#{@user.first_name} #{@user.last_name}"
+        assert_select "a", /#{@user.first_name} #{@user.last_name}.*\z/
       end
-    end
-
-    test "shows the log out button" do
-      assert_select "button", "Log out"
     end
   end
 end

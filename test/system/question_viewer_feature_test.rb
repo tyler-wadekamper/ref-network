@@ -44,6 +44,7 @@ class QuestionViewerFeatureTest < ApplicationSystemTestCase
     end
     assert_selector "#question_#{question_id}_viewer", text: /.*Read question\z/
 
+    find("#navbarUserDropdown").click
     click_on "Log out"
     sleep(0.5)
     sign_in @user

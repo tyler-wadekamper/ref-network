@@ -80,6 +80,7 @@ class UserFeatureTest < ApplicationSystemTestCase
         sign_in @user
         visit questions_url
 
+        find("#navbarUserDropdown").click
         click_on "Log out"
 
         assert_selector "div.alert-success", text: "Logged out successfully."
