@@ -1,5 +1,4 @@
-require "mobile_system_test_case"
-
+require "application_system_test_case"
 class ResponsiveLayoutTest < MobileSystemTestCase
   include Devise::Test::IntegrationHelpers
 
