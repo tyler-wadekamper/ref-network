@@ -1,25 +1,3 @@
-# README
+# RefNetwork
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# ref-network
+RefNetwork is a networking application for football officials to improve their knowledge of game rules. Users can write questions with answers, search for rule references, and sort questions for efficient study.
