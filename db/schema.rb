@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_09_234100) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_235016) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_234100) do
     t.datetime "updated_at", null: false
     t.string "explanation"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "downvotes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_downvotes_on_question_id"
+    t.index ["user_id"], name: "index_downvotes_on_user_id"
   end
 
   create_table "question_references", force: :cascade do |t|
@@ -69,6 +78,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_234100) do
     t.index ["parent_id"], name: "index_references_on_parent_id"
   end
 
+  create_table "upvotes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_upvotes_on_question_id"
+    t.index ["user_id"], name: "index_upvotes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -83,5 +101,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_234100) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "downvotes", "questions"
+  add_foreign_key "downvotes", "users"
   add_foreign_key "questions", "users", column: "author_id"
+  add_foreign_key "upvotes", "questions"
+  add_foreign_key "upvotes", "users"
 end
