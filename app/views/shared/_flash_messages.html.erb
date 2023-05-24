@@ -3,6 +3,6 @@
     <% type = key %>
     <% type = 'success' if key == 'notice' %>
     <% type = 'danger' if key == 'alert' %>
-    <%= content_tag(:div, value, :class => "alert alert-#{type}") %>
+    <%= content_tag(:div, value, :class => "alert alert-#{type} mt-3") %>
   <% end %>
 </div>
