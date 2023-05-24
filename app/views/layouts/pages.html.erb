@@ -5,6 +5,7 @@
     <%= favicon_link_tag asset_path('fbrules_logo_only_fb.svg') %>
     <link rel=”mask-icon” href=”fbrules_logo_only_fb.svg” color=”#000000">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,15 +16,15 @@
       process.env.NODE_ENV = "<%= Rails.env %>"
     </script>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.css", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-100">
-    <%= render 'layouts/nav_bar' %>
+  <body class="h-100 is-boxed has-animations">
     <%= render 'shared/flash_messages' %>
 
     <%= yield %>
   </body>
+
+  <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
 </html>
