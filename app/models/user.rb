@@ -20,6 +20,10 @@ class User < ApplicationRecord
     viewed_questions.include?(question)
   end
 
+  def net_author_votes
+    questions.joins(:upvotes).count('upvotes.id') - questions.joins(:downvotes).count('downvotes.id')
+  end
+
   private
 
   def capitalize_names

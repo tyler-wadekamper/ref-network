@@ -21,6 +21,10 @@ class Question < ApplicationRecord
     references.all.sort_by(&:created_at)
   end
 
+  def net_votes
+    self.upvotes.count - self.downvotes.count
+  end
+
   private
 
   def initial_upvote
