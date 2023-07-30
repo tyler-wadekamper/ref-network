@@ -15,3 +15,6 @@ application.register("visibility", VisibilityController);
 
 import RequestController from "controllers/request_controller";
 application.register("request", RequestController);
+
+import FkAnswerFormController from "controllers/fk_answer_form_controller";
+application.register("fk-answer-form", FkAnswerFormController);

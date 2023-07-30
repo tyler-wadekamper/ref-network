@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :question_viewers, foreign_key: :viewer_id
   has_many :viewed_questions, through: :question_viewers, class_name: 'Question'
 
+  has_many :upvotes
+  has_many :downvotes
+
   validates_presence_of :first_name, :last_name, :email
 
   before_save do
@@ -15,6 +18,10 @@ class User < ApplicationRecord
 
   def viewed?(question)
     viewed_questions.include?(question)
+  end
+
+  def net_author_votes
+    questions.joins(:upvotes).count('upvotes.id') - questions.joins(:downvotes).count('downvotes.id')
   end
 
   private
