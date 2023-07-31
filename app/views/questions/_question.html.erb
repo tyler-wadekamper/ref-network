@@ -3,9 +3,9 @@
     <turbo-frame id="<%= dom_id question %>" class="question" data-controller="viewer">
       <div class="container-fluid p-0">
         <div class="vote-container" data-controller="vote" data-vote-id="<%= question.id %>">
-          <button data-action="vote#upvote">Upvote</button>
+          <button data-action="vote#upvote" class="<%= 'voted' if current_user&.upvotes&.exists?(question: question) %>">Upvote</button>
           <span data-vote-target="voteCount"><%= question.net_votes %></span>
-          <button data-action="vote#downvote">Downvote</button>
+          <button data-action="vote#downvote" class="<%= 'voted' if current_user&.downvotes&.exists?(question: question) %>">Downvote</button>
         </div>
         <div class="row">
           <div class="col-6">
