@@ -21,6 +21,8 @@
           <% end %>
           <li><%= link_to "Newest", questions_path(sort_by: 'newest'), class: "dropdown-item" %></li>
           <li><%= link_to "Oldest", questions_path(sort_by: 'oldest'), class: "dropdown-item" %></li>
+          <li><%= link_to "Most Upvoted", questions_path(sort_by: 'upvotes'), class: "dropdown-item" %></li>
+          <li><%= link_to "Least Upvoted", questions_path(sort_by: 'downvotes'), class: "dropdown-item" %></li>
         </ul>
       </div>
     </div>
