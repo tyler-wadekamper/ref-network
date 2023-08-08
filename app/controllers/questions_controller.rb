@@ -85,5 +85,15 @@ class QuestionsController < ApplicationController
   def sorted_questions(sort_by)
     return Question.order(created_at: :desc) if sort_by == "newest"
     return Question.order(created_at: :asc) if sort_by == "oldest"
+    if sort_by == "upvotes"
+      return Question.left_joins(:upvotes)
+              .group(:id)
+              .order('COUNT(upvotes.id) DESC') 
+    end
+    if sort_by == "downvotes"
+      return Question.left_joins(:downvotes)
+              .group(:id)
+              .order('COUNT(downvotes.id) DESC')
+    end    
   end
 end
