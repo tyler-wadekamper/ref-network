@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["voteCount"];
+  static targets = ["voteCount", "upvoteButton", "downvoteButton"];
 
   get csrfToken() {
     return document
@@ -27,6 +27,7 @@ export default class extends Controller {
           alert(data.error);
         }
       });
+    this.toggleVote(true);
   }
 
   downvote(event) {
@@ -47,5 +48,14 @@ export default class extends Controller {
           alert(data.error);
         }
       });
+    this.toggleVote(false);
+  }
+
+  toggleVote(upvoted) {
+    this.upvoteButtonTarget.classList.toggle("upvoted", upvoted);
+    this.upvoteButtonTarget.disabled = upvoted;
+
+    this.downvoteButtonTarget.classList.toggle("downvoted", !upvoted);
+    this.downvoteButtonTarget.disabled = !upvoted;
   }
 }

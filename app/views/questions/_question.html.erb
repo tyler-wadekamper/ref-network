@@ -2,11 +2,6 @@
   <div class="card-body question-card">
     <turbo-frame id="<%= dom_id question %>" class="question" data-controller="viewer">
       <div class="container-fluid p-0">
-        <div class="vote-container" data-controller="vote" data-vote-id="<%= question.id %>">
-          <button data-action="vote#upvote" class="<%= 'voted' if current_user&.upvotes&.exists?(question: question) %>">Upvote</button>
-          <span data-vote-target="voteCount"><%= question.net_votes %></span>
-          <button data-action="vote#downvote" class="<%= 'voted' if current_user&.downvotes&.exists?(question: question) %>">Downvote</button>
-        </div>
         <div class="row">
           <div class="col-6">
             <div class='card-title mb-0 h5 author-name'>
@@ -52,6 +47,11 @@
         <%= render 'references/question_references_list', references: question.references_by_rule_order %>
       </div>
     </turbo-frame>
+    <div class="vote-container d-flex align-items-start" data-controller="vote" data-vote-id="<%= question.id %>">
+      <button data-vote-target="upvoteButton" data-action="vote#upvote" class="invisible-button bi bi-arrow-up-circle <%= 'upvoted' if current_user&.upvotes&.exists?(question: question) %>"></button>
+      <span data-vote-target="voteCount"><%= question.net_votes %></span>
+      <button data-vote-target="downvoteButton" data-action="vote#downvote" class="invisible-button bi bi-arrow-down-circle <%= 'downvoted' if current_user&.downvotes&.exists?(question: question) %>"></button>
+    </div>
   </div>
 </div>
 
