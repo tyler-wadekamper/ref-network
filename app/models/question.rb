@@ -22,7 +22,7 @@ class Question < ApplicationRecord
   end
 
   def net_votes
-    self.upvotes.count - self.downvotes.count
+    upvotes.count - downvotes.count
   end
 
   private

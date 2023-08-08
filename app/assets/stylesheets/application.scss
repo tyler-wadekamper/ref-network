@@ -7,12 +7,10 @@
     font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
 }
 
-// Pad body so that navbar does not block content
 body {
   padding-top: 70px;
 }
 
-// Create scroll block for reference lists
 .list-group {
   max-height: 300px;
   margin-bottom: 10px;
@@ -20,7 +18,6 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-// added reference in question creation
 .ss-value {
   background: none !important;
   border: 1px solid black;
@@ -51,4 +48,46 @@ body {
 
 .text-underline-hover:hover {
   text-decoration: underline;
+}
+
+.vote-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+.vote-container button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.3s ease-in-out;
+}
+
+.vote-container button:focus {
+  outline: none;
+}
+
+.vote-container button:hover {
+  color: #555;
+}
+
+.vote-container span {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.invisible-button.upvoted {
+  color: $blue;
+}
+
+.invisible-button.downvoted {
+  color: red;
+}
+
+.vote-container button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }

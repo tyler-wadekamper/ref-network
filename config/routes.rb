@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :questions, only: [:edit, :new, :create, :index, :update, :destroy]
   resources :answers, only: [:edit, :new, :create, :update]
   resources :question_viewers, only: [:create]
+  resources :upvotes, only: [:create, :destroy]
+  resources :downvotes, only: [:create, :destroy]
 
   resources :references, only: [:show] do
     collection do
