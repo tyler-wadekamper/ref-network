@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "tyler@fbrules.com"
+  default from: 'FB Rules <tyler@fbrules.com>'
   layout "mailer"
 end
