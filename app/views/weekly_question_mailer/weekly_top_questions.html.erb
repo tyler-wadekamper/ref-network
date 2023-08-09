@@ -1,0 +1,5 @@
+<h1>Top Questions of the Week</h1>
+<% @questions.each do |question| %>
+  <h3><%= question.body %></h3>
+  <p>Upvotes: <%= question.net_votes %></p>
+<% end %>

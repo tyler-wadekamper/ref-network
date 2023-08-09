@@ -25,6 +25,13 @@ class Question < ApplicationRecord
     upvotes.count - downvotes.count
   end
 
+  def self.top_upvoted_from_last_week(limit = 3)
+    where('created_at > ?', 1.week.ago)
+      .sort_by(&:net_votes)
+      .reverse
+      .take(limit)
+  end
+
   private
 
   def initial_upvote
