@@ -11,6 +11,8 @@ gem 'bootstrap'
 
 gem 'nokogiri'
 
+gem 'whenever', require: false
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
