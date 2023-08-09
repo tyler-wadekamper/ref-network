@@ -1,13 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     <style>
-      /* Email styles need to be inline */
+        .header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo-container {
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .slogan {
+            font-size: 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .create-question-button {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+        }
+        .footer-divider {
+            height: 1px;
+            background-color: grey;
+        }
+        .footer {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
     </style>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+</head>
+<body>
+    <table width="100%" class="header">
+        <tr>
+            <td class="logo-container">
+                <a href="https://www.fbrules.com">
+                    <%= image_tag attachments['white_logo.png'].url, alt: 'Logo', class: 'logo' -%>
+                </a>
+                <div class="slogan">
+                    Answer questions. Write questions. Get better.
+                </div>
+            </td>
+            <td>
+                <a href="https://www.fbrules.com/questions/new" class="create-question-button">
+                    Create question
+                </a>
+            </td>
+        </tr>
+    </table>
+    <div class="content">
+        <%= yield %>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer">
+        © 2023 FB Rules by Tyler Wadekamper, all rights reserved
+    </div>
+</body>
 </html>
