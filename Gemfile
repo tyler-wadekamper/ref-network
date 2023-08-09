@@ -18,6 +18,8 @@ group :development, :test do
   gem 'faker'
 end
 
+gem 'mjml-rails'
+
 gem 'rails-controller-testing'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

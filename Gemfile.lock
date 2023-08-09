@@ -137,6 +137,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.17.0)
+    mjml-rails (4.9.0)
     msgpack (1.6.0)
     net-imap (0.3.4)
       date
@@ -264,6 +265,7 @@ DEPENDENCIES
   faker
   importmap-rails
   jbuilder
+  mjml-rails
   nokogiri
   pagy
   pg (~> 1.4)

@@ -1,0 +1,5 @@
+<% @questions.each do |question| %>
+<mj-text font-size="20px" color="#F45E43" font-family="helvetica"
+  ><%= question.body %>; Upvotes: <%= question.net_votes %></mj-text
+>
+<% end %>
