@@ -20,23 +20,11 @@
   </ul></mj-text
 >
 
-<mj-text
-  font-size="14px"
-  color="black"
-  font-family="helvetica"
-  line-height="1.3"
+<mj-text font-size="14px" color="black" font-family="helvetica"
   ><strong
     >Write a question on FB Rules and improve your rules knowledge
     <em><u>today.</u></em></strong
   ></mj-text
 >
 
-<mj-button
-  color="white"
-  background-color="black"
-  border-radius="7px"
-  font-weight="bold"
-  font-size="20px"
-  href="https://www.fbrules.com/questions/new"
-  >Create question</mj-button
->
+<%= render partial: "create_question_button" %>

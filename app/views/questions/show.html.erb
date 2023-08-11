@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="mt-5 px-1">
+        <%= link_to questions_path, class: 'text-decoration-none' do %>
+          <i class="bi bi-arrow-left"></i> Home
+        <% end %>
+      </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-6 mt-2 mb-3 p-0">
+      <%= render @question %>
+    </div>
+  </div>
+</div>

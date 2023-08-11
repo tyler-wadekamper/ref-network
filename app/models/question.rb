@@ -10,8 +10,8 @@ class Question < ApplicationRecord
   has_many :question_viewers, foreign_key: :viewed_question_id, dependent: :destroy
   has_many :viewers, through: :question_viewers, class_name: 'User'
 
-  has_many :upvotes
-  has_many :downvotes
+  has_many :upvotes, dependent: :destroy
+  has_many :downvotes, dependent: :destroy
 
   after_create :initial_upvote
 
