@@ -1,0 +1,58 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all font-family="helvetica"></mj-all>
+      <mj-text font-size="15px" color="black" font-family="helvetica"></mj-text>
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <!-- Header Section -->
+    <mj-section padding="10px 0" background-color="black">
+      <mj-column vertical-align="middle" width="30%">
+        <mj-image
+          href="https://www.fbrules.com"
+          src="https://i.postimg.cc/Cx4RdmYP/white-logo.png"
+          alt="Logo"
+        />
+      </mj-column>
+      <mj-column vertical-align="middle" width="30%">
+        <mj-text color="white"
+          >Answer questions. Write questions. Get better.</mj-text
+        >
+      </mj-column>
+      <mj-column vertical-align="middle" width="35%">
+        <mj-button
+          color="black"
+          background-color="white"
+          border-radius="7px"
+          font-weight="bold"
+          font-size="14px"
+          href="https://www.fbrules.com/questions/new"
+          >Create question</mj-button
+        >
+      </mj-column>
+    </mj-section>
+
+    <!-- Content Section -->
+    <mj-section background-color="white" padding="20px">
+      <mj-column> <%= yield %> </mj-column>
+    </mj-section>
+
+    <!-- Footer Divider -->
+    <mj-section padding="0">
+      <mj-column>
+        <mj-divider border-width="1px" border-color="grey"></mj-divider>
+      </mj-column>
+    </mj-section>
+
+    <!-- Footer Section -->
+    <mj-section padding="0" background-color="white">
+      <mj-column>
+        <mj-text align="center"
+          >© <%= Time.current.year %> FB Rules by Tyler Wadekamper, all rights
+          reserved</mj-text
+        >
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

@@ -10,8 +10,8 @@ class Question < ApplicationRecord
   has_many :question_viewers, foreign_key: :viewed_question_id, dependent: :destroy
   has_many :viewers, through: :question_viewers, class_name: 'User'
 
-  has_many :upvotes
-  has_many :downvotes
+  has_many :upvotes, dependent: :destroy
+  has_many :downvotes, dependent: :destroy
 
   after_create :initial_upvote
 
@@ -23,6 +23,13 @@ class Question < ApplicationRecord
 
   def net_votes
     upvotes.count - downvotes.count
+  end
+
+  def self.top_upvoted_from_last_week(limit = 3)
+    where('created_at > ?', 1.week.ago)
+      .sort_by(&:net_votes)
+      .reverse
+      .take(limit)
   end
 
   private

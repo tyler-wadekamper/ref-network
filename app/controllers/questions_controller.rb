@@ -9,6 +9,10 @@ class QuestionsController < ApplicationController
     render "scrollable_list" if params[:page]
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def new
     @question = Question.new
     @question.build_answer

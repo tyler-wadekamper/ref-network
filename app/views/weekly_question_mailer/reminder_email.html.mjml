@@ -1,0 +1,30 @@
+<mj-text font-size="18px" color="black" font-family="helvetica" align="center"
+  ><em
+    >"If you're not getting better, you're getting worse. You never stay the
+    same."</em
+  ></mj-text
+>
+
+<mj-text
+  font-size="14px"
+  color="black"
+  font-family="helvetica"
+  line-height="1.2"
+  padding-bottom="0"
+>
+  Why write rules questions?
+  <ul style="margin-top: 2px">
+    <li>Improve your own understanding.</li>
+    <li>Share with others and help them learn.</li>
+    <li>It's simple, easy, and fast.</li>
+  </ul></mj-text
+>
+
+<mj-text font-size="14px" color="black" font-family="helvetica"
+  ><strong
+    >Write a question on FB Rules and improve your rules knowledge
+    <em><u>today.</u></em></strong
+  ></mj-text
+>
+
+<%= render partial: "create_question_button" %>

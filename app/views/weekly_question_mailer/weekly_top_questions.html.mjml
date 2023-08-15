@@ -1,0 +1,61 @@
+<mj-text font-size="20px" color="black" font-family="helvetica">
+  <strong>Check out this week's top questions:</strong>
+</mj-text>
+
+<% @questions.each do |question| %>
+<mj-divider border-color="#f0f0f0" />
+<mj-text
+  font-size="16px"
+  color="black"
+  font-family="helvetica"
+  font-weight="bold"
+  padding-bottom="0"
+>
+  <%= question.author.first_name %> <%= question.author.last_name %>
+</mj-text>
+<mj-text
+  font-size="14px"
+  color="#777"
+  font-family="helvetica"
+  padding-top="3px"
+>
+  <%= time_ago_in_words(question.created_at) %> ago
+</mj-text>
+<mj-text
+  font-size="14px"
+  color="black"
+  font-family="helvetica"
+  background-color="#f0f0f0"
+  padding-top="5px"
+>
+  <%= question.body %>
+</mj-text>
+<mj-text
+  font-size="14px"
+  color="black"
+  font-family="helvetica"
+  padding-top="5px"
+>
+  <strong>
+    <%= (question.net_votes >= 0 ? '+' : '') + question.net_votes.to_s %> <%=
+    question.net_votes.abs == 1 ? 'Vote' : 'Votes' %>
+  </strong>
+</mj-text>
+<mj-button
+  color="white"
+  background-color="black"
+  border-radius="7px"
+  font-weight="bold"
+  font-size="14px"
+  href="<%= question_url(question.id) %>"
+  >View answer</mj-button
+>
+<% end %>
+
+<mj-divider padding-bottom="20px" border-color="#f0f0f0" />
+
+<mj-text font-size="16px" color="black" font-family="helvetica">
+  Write questions today to compete for next week's leaderboard!
+</mj-text>
+
+<%= render partial: "create_question_button" %>
