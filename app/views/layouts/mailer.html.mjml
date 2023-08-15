@@ -12,7 +12,6 @@
         <mj-image
           href="https://www.fbrules.com"
           src="https://i.postimg.cc/Cx4RdmYP/white-logo.png"
-          alt="Logo"
         />
       </mj-column>
       <mj-column vertical-align="middle" width="30%">

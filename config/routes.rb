@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'send_weekly_email' => 'jobs#send_weekly_email'
+
   # Defines the root path route ("/")
   root 'pages#home'
 end
