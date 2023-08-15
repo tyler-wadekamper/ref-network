@@ -7,11 +7,11 @@ class WeeklyQuestionEmailJob < ApplicationJob
 
     if questions.any?
       users.each do |user|
-        WeeklyQuestionMailer.weekly_top_questions(questions, user).deliver_later
+        WeeklyQuestionMailer.weekly_top_questions(questions, user).deliver_now
       end
     else
       users.each do |user|
-        WeeklyQuestionMailer.reminder_email(user).deliver_later
+        WeeklyQuestionMailer.reminder_email(user).deliver_now
       end
     end
   end
