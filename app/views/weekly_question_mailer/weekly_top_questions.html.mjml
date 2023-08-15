@@ -47,7 +47,7 @@
   border-radius="7px"
   font-weight="bold"
   font-size="14px"
-  href="www.fbrules.com/questions/<%= question.id %>"
+  href="https://www.fbrules.com/questions/<%= question.id %>"
   >View answer</mj-button
 >
 <% end %>
