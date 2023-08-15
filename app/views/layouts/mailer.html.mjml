@@ -11,7 +11,7 @@
       <mj-column vertical-align="middle" width="30%">
         <mj-image
           href="https://www.fbrules.com"
-          src="<%=image_url('white_logo.png')%>"
+          src="https://i.postimg.cc/Cx4RdmYP/white-logo.png"
           alt="Logo"
         />
       </mj-column>
@@ -49,7 +49,8 @@
     <mj-section padding="0" background-color="white">
       <mj-column>
         <mj-text align="center"
-          >© 2023 FB Rules by Tyler Wadekamper, all rights reserved</mj-text
+          >© <%= Time.current.year %> FB Rules by Tyler Wadekamper, all rights
+          reserved</mj-text
         >
       </mj-column>
     </mj-section>
