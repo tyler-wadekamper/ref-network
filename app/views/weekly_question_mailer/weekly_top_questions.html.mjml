@@ -17,7 +17,7 @@
   font-size="14px"
   color="#777"
   font-family="helvetica"
-  padding-top="5px"
+  padding-top="3px"
 >
   <%= time_ago_in_words(question.created_at) %> ago
 </mj-text>
@@ -26,12 +26,20 @@
   color="black"
   font-family="helvetica"
   background-color="#f0f0f0"
-  padding="25px"
+  padding-top="5px"
 >
   <%= question.body %>
 </mj-text>
-<mj-text font-size="14px" color="black" font-family="helvetica">
-  <%= question.net_votes %> <%= question.net_votes == 1 ? 'Vote' : 'Votes' %>
+<mj-text
+  font-size="14px"
+  color="black"
+  font-family="helvetica"
+  padding-top="5px"
+>
+  <strong>
+    <%= (question.net_votes >= 0 ? '+' : '') + question.net_votes.to_s %> <%=
+    question.net_votes.abs == 1 ? 'Vote' : 'Votes' %>
+  </strong>
 </mj-text>
 <mj-button
   color="white"
