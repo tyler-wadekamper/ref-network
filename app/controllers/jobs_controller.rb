@@ -10,8 +10,10 @@ class JobsController < ApplicationController
   private
 
   def authenticate_api_key
+    puts request.headers['API_KEY']
+    puts ENV['RAILS_MASTER_KEY']
     api_key = request.headers['API_KEY']
-    unless api_key && api_key == ENV['RAILS_MASTER_KEY']
+    unless api_key == ENV['RAILS_MASTER_KEY']
       render json: { error: 'Unauthorized' }, status: :unauthorized
     end
   end
