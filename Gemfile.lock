@@ -153,7 +153,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pagy (6.0.0)
-    pg (1.4.5)
+    pg (1.5.3)
     popper_js (2.11.6)
     public_suffix (5.0.0)
     puma (6.1.0)
@@ -268,7 +268,7 @@ DEPENDENCIES
   mjml-rails
   nokogiri
   pagy
-  pg (~> 1.4)
+  pg (~> 1.5)
   puma (~> 6.1)
   rails (~> 7.0.4)
   rails-controller-testing
